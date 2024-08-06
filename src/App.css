@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://www.flaticon.com/br/icone-gratis/costas_126492?related_id=126492&origin=pack');
 * {
   margin: 0;
   padding: 0;
@@ -9,19 +9,20 @@
 
 body {
   width: 100vw;
-  height: 100vh;
+  height: 200vh;
   background: linear-gradient(to bottom, #013E4F, #024959);
   font-family: 'Poppins', sans-serif;
 }
 
 .header {
-  background-color: #038D9D;
+  background-color: #3CA6A6;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2vw; 
   height: 10vh;
+  
 }
 
 .logo {
@@ -29,21 +30,22 @@ body {
 }
 
 nav {
-  margin-right: 23%;
   display: flex;
   justify-content: center;
   align-items: center; 
+  justify-items:auto;
   height: 100%;
 }
 
 nav p {
-  margin: 0 1.5vw; 
+  margin: 0 5vw; 
+
 }
 
 a {
   font-family: 'Poppins', 'Courier New', Courier, monospace;
   font-weight: bold;
-  font-size: 1.3em;
+  font-size: 1.6em;
   text-decoration: none;
   color: #FFFFFF;
 }
@@ -56,6 +58,7 @@ p {
   text-shadow: 0px 4px 4px black;
 }
 
+
 .border-conteiner {
   background-color: #026773;
   width: 90%;
@@ -63,68 +66,86 @@ p {
   margin: 5vh auto;
   padding: 5vh;
   border-radius: 15px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
 }
 
 .conteiner {
   background-color: #013546;
   border-radius: 30px;
-  margin-left: 18vw;
   width: 65vw;
   height: 70vh;
-  box-shadow: -15vw 0px #3CA6A6;
+  box-shadow: -8vw 0px #3CA6A6;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px; 
 }
 
 .conteiner > img {
   width: 40vw;
-  height: 70vh;
+  height: auto;
   position: absolute;
   top: 0;
-  left: 28vw;
-}
-
-.icon-search {
-  position: absolute;
-  width: 4vw;
-  height: 4vh;
-  top: 60vh;
-  left: 61vw;
-  color: black;
-  background: transparent;
-  border: none;
-}
-
-.icon-cadeira {
-  position: absolute;
-  width: 4vw;
-  height: 4vh;
-  top: 60vh;
-  left: 31vw;
-  color: black;
-  background: transparent;
-  border: none;
+  left: 48%;
+  transform: translateX(-50%);
+  top: calc(1% + (-210px)); 
 }
 
 .conteiner > p {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1.8rem;
-  margin-top: 8px;
-  position: absolute;
-  top: 27vw;
-  left: 35vw;
+  margin-top: 60px;
+  text-align: center;
 }
 
 input {
-  margin-top: 38vh;
-  margin-left: 10vh;
+  margin-top: 20px;
   width: 35vw;
   height: 8vh;
   border: none;
-  cursor: grabbing;
+  cursor: pointer;
   box-shadow: -8px -13px 2px #012834;
   border-radius: 100px;
   background-color: #D9D9D9;
+  padding: 0 15px; 
+}
+
+.icon-search, .icon-cadeira {
+  position: absolute;
+  width: 4vw;
+  height: 4vh;
+  color: black;
+  background: transparent;
+  border: none;
+}
+
+.icon-search {
+  top: calc(50% + 15px); 
+  right: 23%; 
+}
+
+.icon-cadeira {
+  top: calc(50% + 15px); 
+  left: 23%;
+}
+
+button {
+  margin-top: 20px; 
+  padding: 10px 20px; 
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  color: #012834;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  font-size: 1rem; 
+  font-weight: bold;
+  size: 200px;
 }
 
 @media only screen and (max-width: 1300px) {
@@ -139,4 +160,48 @@ input {
     width: 50px;
     height: 50px;
   }
+}
+h2{
+  text-align: center;
+}
+.avaliacao {
+  background-color: #3CA6A6;
+  width: 95%;
+  height: 35vh;
+  border-end-start-radius: 120px;
+  border-start-end-radius: 120px;
+  margin: 4vh auto;
+  padding: 3vh;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  position: relative; 
+  text-align: center;
+}
+
+.avaliacao .esquerda, .avaliacao .direita {
+  font-size: 2.5rem;
+  color: #FFFFFF;
+  cursor: pointer;
+  position: absolute; 
+}
+
+.avaliacao .esquerda {
+  left: 10px; 
+}
+
+.avaliacao .direita {
+  right: 10px;
+}
+
+
+.foto-anony{
+  width: 20vw;
+  height: 20vh;
+}
+
+.person{
+  text-align: center;
+  margin: auto;
 }

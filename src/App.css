@@ -9,7 +9,7 @@
 
 body {
   width: 100vw;
-  height: 200vh;
+  height: 300vh;
   background: linear-gradient(to bottom, #013E4F, #024959);
   font-family: 'Poppins', sans-serif;
 }
@@ -138,14 +138,12 @@ button {
   margin-top: 20px; 
   padding: 10px 20px; 
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: white;
   color: #012834;
   font-family: 'Poppins', sans-serif;
-  cursor: pointer;
-  font-size: 1rem; 
   font-weight: bold;
-  size: 200px;
+
 }
 
 @media only screen and (max-width: 1300px) {
@@ -169,7 +167,7 @@ h2{
   width: 95%;
   height: 35vh;
   border-end-start-radius: 120px;
-  border-start-end-radius: 120px;
+  border-start-end-radius: 120px; 
   margin: 4vh auto;
   padding: 3vh;
   display: flex; 
@@ -187,7 +185,7 @@ h2{
   position: absolute; 
 }
 
-.avaliacao .esquerda {
+.avaliacao .esquerda {  
   left: 10px; 
 }
 
@@ -204,4 +202,53 @@ h2{
 .person{
   text-align: center;
   margin: auto;
+}
+.Voluntário1{
+  margin-top: 10%;
+  width: 1350px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  background-color: #026773; 
+  border-radius: 40px; 
+  margin-left: 73px;
+  }
+  .Voluntário2 {
+    width: 97%; 
+    max-width: 1400px; 
+    height: 90%;
+    background-color: #012834;
+    border-radius: 40px; 
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    text-align: left; 
+    margin-left: 1.5%;
+    text-align: left;
+}
+
+.button{
+  padding: 8px 16px;
+  font-size: 18px; 
+  background-color: #FFFFFF; 
+  color: #012834; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: auto; 
+  max-width: 270px; 
+  margin-left: 3%;
+}
+h1{
+  font-size: 46px;
+  color: #ffffff; 
+  margin-left: 3%;
+}
+.Ajuda{
+  width: 500px;
+  height: 350px;
+  margin-left: 50%;
+  margin-top: -300px;
 }

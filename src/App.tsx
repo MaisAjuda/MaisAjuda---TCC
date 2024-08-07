@@ -7,6 +7,8 @@ import { PiWheelchairFill } from "react-icons/pi";
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
 import { IoPersonCircleOutline } from "react-icons/io5";
+import Ajuda from './assets/Hospital wheelchair-bro.png';
+
 import './App.css';
 
 function App() {
@@ -44,20 +46,32 @@ function App() {
                 <GoChevronRight className='direita'/>
                 <div className="person">
                  <IoPersonCircleOutline className='foto-anony'/>
-                 <p>Nome </p>
-                 <p>Avaliação</p>
+                 <p>Jeferon Azevedo </p>
+                 ⭐⭐⭐⭐⭐
                 </div>
                 <div className="person">
                   <IoPersonCircleOutline className='foto-anony'/>
-                  <p>Nome </p>
-                  <p>Avaliação</p>
+                  <p>Maria Teixeira </p>
+                  ⭐⭐⭐⭐⭐
                 </div>
                 <div className="person">
                   <IoPersonCircleOutline className='foto-anony'/>
-                  <p>Nome </p>
-                  <p>Avaliação</p>
+                  <p>João Persona</p>
+                  ⭐⭐⭐⭐⭐
                 </div>
               </div>
+        </section>
+
+        <section>
+          <div className='Voluntário1'>
+            <div className='Voluntário2'>
+              <h1 className='h11'>Olá Cliente,  </h1>
+              <h1>Deseja se tornar</h1>
+              <h1>um Cuidador?</h1>
+              <button className='button'>Torne-se um cuidador</button>
+              <img className='Ajuda' src={Ajuda} alt="ajuda" />
+            </div>
+          </div>
         </section>
       </main>
     </>
@@ -65,3 +79,4 @@ function App() {
 }
 
 export default App;
+ 

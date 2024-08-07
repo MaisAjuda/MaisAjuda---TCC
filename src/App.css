@@ -8,8 +8,8 @@
 }
 
 body {
-  width: 100vw;
-  height: 300vh;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(to bottom, #013E4F, #024959);
   font-family: 'Poppins', sans-serif;
 }
@@ -205,7 +205,7 @@ h2{
 }
 .Voluntário1{
   margin-top: 10%;
-  width: 1350px;
+  width: 93%;
   height: 500px;
   display: flex;
   align-items: center;
@@ -214,8 +214,7 @@ h2{
   margin-left: 73px;
   }
   .Voluntário2 {
-    width: 97%; 
-    max-width: 1400px; 
+    width: 90vw; 
     height: 90%;
     background-color: #012834;
     border-radius: 40px; 
@@ -229,6 +228,10 @@ h2{
     text-align: left;
 }
 
+.text-conteiner{
+  margin-left: 10vw;
+}
+
 .button{
   padding: 8px 16px;
   font-size: 18px; 
@@ -240,6 +243,7 @@ h2{
   width: auto; 
   max-width: 270px; 
   margin-left: 3%;
+  transition: 0.3s ease-in-out;
 }
 h1{
   font-size: 46px;
@@ -251,4 +255,28 @@ h1{
   height: 350px;
   margin-left: 50%;
   margin-top: -300px;
+}
+
+
+footer{
+  margin-top: 10%;
+  background-color: #012340;
+  height: 100%;
+}
+.footer-conteiner > img{
+  width: 50%;
+  margin-left: -5vw;
+}
+.footer-conteiner{
+  display: flex;
+  width: 100%;  
+}
+article{
+  margin-left: 25%;
+  margin-top: 8%;
+}
+.para{
+  margin-left: -5%;
+  font-weight: bold;
+  font-size: 1.4rem;
 }

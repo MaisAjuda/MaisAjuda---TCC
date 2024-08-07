@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import logo from './assets/logo.svg';
 import logoMaior from './assets/+AJUDA.png';
+import maisajuda from './assets/MAIS-removebg-preview.png'
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaSearch } from "react-icons/fa";
 import { PiWheelchairFill } from "react-icons/pi";
@@ -65,15 +66,32 @@ function App() {
         <section>
           <div className='Voluntário1'>
             <div className='Voluntário2'>
-              <h1 className='h11'>Olá Cliente,  </h1>
-              <h1>Deseja se tornar</h1>
-              <h1>um Cuidador?</h1>
-              <button className='button'>Torne-se um cuidador</button>
+              <div className="text-conteiner">
+                <h1 className='h11'>Olá Cliente, </h1>
+                <h1>Deseja se tornar</h1> 
+                <h1>um Cuidador?</h1>
+                <button className='button'>Torne-se um cuidador</button>
+              </div>
               <img className='Ajuda' src={Ajuda} alt="ajuda" />
             </div>
           </div>
         </section>
       </main>
+      <footer>
+        <div className="footer-conteiner">
+          <img src={maisajuda} alt="logo-mais-ajuda" />
+          <article>
+            <p className='para'>Contato</p>
+            <ul>
+              <li>contato@maisajuda.com</li>
+              <li>(00) 00000-0000</li>
+              <li>(00) 00000-0000</li>
+              <li>(00) 00000-0000</li>
+            </ul>
+            <h2>Siga o Mais Ajuda nas redes sociais</h2>
+          </article>
+        </div>
+      </footer>
     </>
   );
 }

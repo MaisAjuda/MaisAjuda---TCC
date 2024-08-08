@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from './assets/logo.svg';
 import logoMaior from './assets/+AJUDA.png';
 import Ajuda from './assets/Hospital wheelchair-bro.png';
@@ -17,6 +18,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import './App.css';
 
 function App() {
+  const nav1 = useNavigate()
   return (
     <>
       <header className='header'>
@@ -74,7 +76,7 @@ function App() {
                 <h1 className='h11'>Olá Cliente, </h1>
                 <h1>Deseja se tornar</h1> 
                 <h1>um Cuidador?</h1>
-                <button className='button'>Torne-se um cuidador</button>
+                <button className='button' onClick={() => nav1('/Area')}>Torne-se um cuidador</button>
               </div>
               <img className='Ajuda' src={Ajuda} alt="ajuda" />
             </div>
@@ -101,7 +103,7 @@ function App() {
             </div>
           </article>
         </div>
-        <p className='copy'>© Copyright 2024-2025 maisajuda.com.br - All Rights Reserved - MaisAjuda</p>
+        <p className='copy'>© Copyright 2024-2025 maisajuda.com.br - All Rights Reserved - MaisAjuda</p>
       </footer>
     </>
   );

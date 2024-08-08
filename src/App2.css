@@ -1,0 +1,115 @@
+
+.body {
+    width: 100vw;
+    height: 100vh;
+    background: #013E4F;
+    font-family: 'Poppins', sans-serif;
+}
+
+.divAre {
+    position: relative;
+    top: 20%; 
+    height: 50%;
+    width: 50%;
+    background-color: #024959;
+    margin-left: 5%;
+}
+
+.H1S {
+    margin-left: 73%;
+    top: 20%;
+    font-size: 400%;
+    position: relative;
+}
+
+.H1SS {
+    margin-left: 76%;
+    top: 15%;
+    font-size: 400%;
+    position: relative;
+}
+
+.H11S {
+    margin-left: 65%;
+    top: 10%;
+    font-size: 400%;
+    position: relative;
+}
+
+.PS {
+    margin-left: 76%;
+    font-weight: bold;
+    top: 10%;
+    position: relative;
+}
+
+.PS2 {
+    margin-left: 73.5%;
+    font-weight: bold;
+    top: 10%;
+    position: relative;
+}
+
+.H22S {
+    margin-left: -85%;
+    margin-top: -1%;
+    font-size: 200%;
+}
+
+.H2S {
+    margin-left: -90%;
+    margin-top: -35%;
+    font-size: 200%;
+}
+.senhor{
+    height: 80%;
+    margin-left: 5%;
+    margin-top:1%;
+}
+  .divAre2{
+    position: relative;
+    top: -30%; 
+    height: 50%;
+    width: 40%;
+    background-color: #C7C7C7;
+    margin-left: 55%;
+    text-align: center;
+  }
+  .Maais{
+    margin-top: -3%;
+    height: 30%;
+  }
+ .H112{
+   color: #026773;
+ } 
+ .inp1{
+    margin-top: 3%;
+    width: 25vw;
+    height: 7vh;
+    cursor: pointer;
+    border-radius: 1%;
+    background-color: #D9D9D9;
+    padding: 0 5%; 
+    font-size: 150%;
+ }
+ .inp2{
+    margin-top: 3%;
+    width: 25vw;
+    height: 7vh;
+    cursor: pointer;
+    border-radius: 1%;
+    background-color: #D9D9D9;
+    padding: 0 5%; 
+    font-size: 150%;
+ }
+ .entrar{
+    margin-top: 2%; 
+    border: none;
+    border-radius: 10px;
+    background-color: #038D9D;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    padding: 2% 26.5%; 
+    font-size: 150%;
+ }

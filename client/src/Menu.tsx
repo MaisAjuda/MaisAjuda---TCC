@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import logo from './assets/logo.svg';
+import logo from './assets/AJUDA.png';
 import logoMaior from './assets/AJUDA.png';
 import Ajuda from './assets/Hospital wheelchair-bro.png';
 import maisajuda from './assets/MAIS-removebg-preview.png';
@@ -25,9 +25,9 @@ function App() {
       <header className='header'>
         <img src={logo} className='logo' alt="logo-mais-ajuda" />
         <nav>
-          <p className='p1'><a href='#'>Sobre Nós</a></p>
-          <p className='p3'><a href='#'>Depoimentos</a></p>  
-          <p className='p4'><a href='#'>Contato</a></p>  
+          <p className='p'><a href='#'>Sobre Nós</a></p>
+          <p className='p'><a href='#'>Depoimentos</a></p>  
+          <p className='p'><a href='#'>Contato</a></p>  
         </nav>
         <RxHamburgerMenu className='menu-hamburguer'/>
       </header>
@@ -47,7 +47,7 @@ function App() {
         <section>
             <h2>Destaques da Semanda</h2>
               <div className="avaliacao">
-                <GoChevronLeft className='esquerda'/>
+                {/* <GoChevronLeft className='esquerda'/>
                 <GoChevronRight className='direita'/>
                 <div className="person">
                  <IoPersonCircleOutline className='foto-anony'/>
@@ -63,7 +63,7 @@ function App() {
                   <IoPersonCircleOutline className='foto-anony'/>
                   <p>João Persona</p>
                   ⭐⭐⭐⭐⭐
-                </div>
+                </div> */}
               </div>
         </section>
 

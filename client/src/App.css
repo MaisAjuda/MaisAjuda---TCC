@@ -26,7 +26,8 @@ body {
 }
 
 .logo {
-  height: 100%;
+  height: 40vh;
+  margin-bottom: 1.5vh;
 }
 
 nav {
@@ -45,7 +46,7 @@ nav p {
 a {
   font-family: 'Poppins', 'Courier New', Courier, monospace;
   font-weight: bold;
-  font-size: 1.6em;
+  font-size: 1em;
   text-decoration: none;
   color: #FFFFFF;
 }

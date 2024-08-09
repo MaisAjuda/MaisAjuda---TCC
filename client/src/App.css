@@ -15,7 +15,7 @@ body {
 }
 
 .header {
-  background-color: #3CA6A6;
+  background-color: #002B36;
   width: 100vw;
   display: flex;
   justify-content: space-between;
@@ -58,17 +58,24 @@ p {
   text-shadow: 0px 4px 4px black;
 }
 
+.img-1{
+  width: 100vw;
+  height: 50vh;
+  background-image: url('assets/foto-idoso.jpg');
+  background-position: center 110vh;
+  background-size: 100%;
+}
 
-.border-conteiner {
-  background-color: #026773;
-  width: 90%;
-  height: 80vh;
-  margin: 5vh auto;
-  padding: 5vh;
-  border-radius: 15px;
-  display: flex; 
-  justify-content: center;
-  align-items: center;
+#coiso{
+  position: absolute;
+  top: 1;
+  right: 0;
+  width: 100vw;
+  height: 6vh;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .conteiner {

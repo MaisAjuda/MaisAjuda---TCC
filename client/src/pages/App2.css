@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://www.flaticon.com/br/icone-gratis/costas_126492?related_id=126492&origin=pack');
+.conteiner-are {
+    width: 100vw;
+    height: 100vh;
+    background: #013E4F;
+    font-family: 'Poppins', sans-serif;
+}
+
+.divAre {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border-start-start-radius: 10px;
+    border-end-start-radius: 10px;
+    padding: 1vw;
+    top: 20%; 
+    height: 60%;
+    width: 50%;
+    background-color: #026773;
+    margin-left: 5%;
+}
+
+.H2S{
+    text-align: justify;
+    margin-left: 2vw;
+    margin-right: 14.3vw;
+    text-indent: -12px;
+    line-height: 1em;
+}
+.H1S{
+    margin-top: 6vh;
+    text-align: center;
+    line-height: 1.1em;
+}
+span{
+    font-size: 0.3em;
+}
+#span-1{
+    
+}
+.PS2{
+    color: black;
+}
+
+.senhor{
+    
+    height: 80%;
+    margin-left: 5%;
+    margin-top:-1%;
+}
+
+.divAre2{
+position: relative;
+top: -40%; 
+height: 60%;
+width: 40%;
+background-color: #E2E2E2;
+margin-left: 55%;
+text-align: center;
+border-start-end-radius: 10px;
+border-end-end-radius: 10px;
+}
+.Maais{
+margin-top: -3%;
+height: 30%;
+}
+.H112{
+color: #026773;
+font-size: 4rem;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.387);
+} 
+.inp{
+margin-top: 3%;
+width: 25vw;
+height: 7vh;
+cursor: pointer;
+border-radius: 1%;
+box-shadow: 0px 4px 7px #00000055;
+background-color: #ffffff;
+color: #000000;
+padding: 0 5%; 
+font-size: 150%;
+}
+.inp:hover{
+    cursor: text;
+}
+.inp:focus{
+    border: none;
+    color: #000000;
+    outline: none;
+}
+input:-webkit-autofill {
+    background-color: #ffffff;
+    font-family: 'Montserrat', 'Courier New', Courier, monospace;
+}
+.inp::placeholder{
+font-family: 'Montserrat', 'Courier New', Courier, monospace;
+}
+.entrar{
+margin-top: 4%; 
+width: 25vw;
+text-align: center;
+border: none;
+border-radius: 10px;
+background: linear-gradient(to right, #026773, #038D9D);
+color: #ffffff;
+font-family: 'Poppins', sans-serif;
+font-weight: bold;
+padding: 2% 26.5%; 
+font-size: 150%;
+}
+
+@media only screen and (max-width: 1960px) {
+    .senhor{
+
+        height: 80%;
+        margin-left: -32%;
+        margin-top:10%;
+    }
+}

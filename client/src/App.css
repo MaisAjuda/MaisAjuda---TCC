@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://www.flaticon.com/br/icone-gratis/costas_126492?related_id=126492&origin=pack');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,23 +12,23 @@
 body {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, #013E4F, #024959);
+  background-color: #C4C4C4;
   font-family: 'Poppins', sans-serif;
 }
 
 .header {
-  background-color: #002B36;
+  background-color: #012037;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 2vw; 
-  height: 10vh;
+  height: 7vh;
   
 }
 
 .logo {
-  height: 40vh;
+  height: 35vh;
   margin-bottom: 1.5vh;
 }
 
@@ -39,8 +41,7 @@ nav {
 }
 
 nav p {
-  margin: 0 5vw; 
-
+  margin: 0 1vw; 
 }
 
 a {
@@ -57,26 +58,31 @@ a {
 
 p {
   text-shadow: 0px 4px 4px black;
+  cursor: pointer;
+  font-family: 'Roboto', 'Courier New', Courier, monospace;
 }
 
 .img-1{
   width: 100vw;
+  opacity: 56%;
   height: 50vh;
   background-image: url('assets/foto-idoso.jpg');
   background-position: center 110vh;
   background-size: 100%;
+  padding-top: 15vh;
 }
 
-#coiso{
-  position: absolute;
-  top: 1;
-  right: 0;
-  width: 100vw;
-  height: 6vh;
-  -moz-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  -webkit-transform: scaleX(-1);
-  transform: scaleX(-1);
+.img-1 > h1{
+  font-family: 'Roboto', 'Courier New', Courier, monospace;
+  text-wrap: wrap;
+  width: 45vw;
+}
+.img-1 > p {
+  font-family: 'Roboto', 'Courier New', Courier, monospace;
+  text-wrap: wrap;
+  width: 35vw;
+  margin-left: 3vw;
+  font-size: 1.5rem;
 }
 
 .conteiner {
@@ -93,15 +99,6 @@ p {
   padding: 20px; 
 }
 
-.conteiner > img {
-  width: 40vw;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 48%;
-  transform: translateX(-50%);
-  top: calc(1% + (-210px)); 
-}
 
 .conteiner > p {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
@@ -211,35 +208,6 @@ h2{
   text-align: center;
   margin: auto;
 }
-.Voluntário1{
-  margin-top: 10%;
-  width: 93%;
-  height: 500px;
-  display: flex;
-  align-items: center;
-  background-color: #026773; 
-  border-radius: 40px; 
-  margin-left: 73px;
-  }
-  .Voluntário2 {
-    width: 90vw; 
-    height: 90%;
-    background-color: #012834;
-    border-radius: 40px; 
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    text-align: left; 
-    margin-left: 1.5%;
-    text-align: left;
-}
-
-.text-conteiner{
-  margin-left: 10vw;
-}
-
 .button{
   padding: 8px 16px;
   font-size: 18px; 
@@ -258,12 +226,8 @@ h1{
   color: #ffffff; 
   margin-left: 3%;
 }
-.Ajuda{
-  width: 500px;
-  height: 350px;
-  margin-left: 50%;
-  margin-top: -300px;
-}
+
+.selects
 
 
 footer{

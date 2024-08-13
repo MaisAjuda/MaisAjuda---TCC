@@ -13,7 +13,7 @@ import { FaSearch } from "react-icons/fa";
 import { PiWheelchairFill } from "react-icons/pi";
 import { GoChevronLeft } from "react-icons/go";
 import { GoChevronRight } from "react-icons/go";
-import { IoPersonCircleOutline } from "react-icons/io5";
+import { IoPersonOutline } from "react-icons/io5";
 
 import './App.css';
 import { useNavigate } from 'react-router-dom';
@@ -27,7 +27,9 @@ function App() {
         <nav>
           <p className='p'><a href='#'>Sobre Nós</a></p>
           <p className='p'><a href='#'>Depoimentos</a></p>  
-          <p className='p'><a href='#'>Contato</a></p>  
+          <p className='p'><a href='#'>Contato</a></p>
+          <p>|</p>
+          <p className='p' onClick={()=>nav('/login')}><IoPersonOutline /> Entrar</p>
         </nav>
         <RxHamburgerMenu className='menu-hamburguer'/>
       </header>
@@ -35,19 +37,41 @@ function App() {
       <main>
         <section>
           <div className='conteiner-slider'>
-            <img src={coiso} id='coiso'/>
-            <ul className="slider">
-              <li>
-                <div className="img-1"></div>
-              </li>
-            </ul>
+            <div className="img-1">
+              <h1>CONECTANDO CUIDADORES A QUEM PRECISA DE CUIDADOS DOMICILIARES</h1>
+              <p>O Mais Ajuda foi especialmente desenvolvida para ser uma solução tecnológica através da qual pessoas que precisam de CUIDADOS encontrem CUIDADORES.</p>
+            </div>
           </div>
         </section>
 
-        <section>
+
+        <section className='encontrar'>
+          <h1>Encontre o cuidador ideal</h1>
+
+          <div className="selects">
+            <label htmlFor="caixa-cuidado">Qual tipo de cuidado você busca?</label>
+            <select name="caixa-cuidado">
+              <option value="PCD">PCD</option>
+              <option value="pos-operatorio">Pós Operatório</option>
+              <option value="idoso">Idoso</option>
+              <option value="recem-nascido">Recém nascido</option>
+            </select>
+
+            <label htmlFor="cidade">De qual cidade você é?</label>
+            <select name="cidade">
+              <option value="volta-redonda">Volta Redonda</option>
+              <option value="barra-mansa">Barra Mansa</option>
+              <option value="Vassouras">Vassouras</option>
+            </select>
+          </div>
+
+        </section>
+
+
+        {/* <section>
             <h2>Destaques da Semanda</h2>
               <div className="avaliacao">
-                {/* <GoChevronLeft className='esquerda'/>
+                <GoChevronLeft className='esquerda'/>
                 <GoChevronRight className='direita'/>
                 <div className="person">
                  <IoPersonCircleOutline className='foto-anony'/>
@@ -63,23 +87,9 @@ function App() {
                   <IoPersonCircleOutline className='foto-anony'/>
                   <p>João Persona</p>
                   ⭐⭐⭐⭐⭐
-                </div> */}
+                </div>
               </div>
-        </section>
-
-        <section>
-          <div className='Voluntário1'>
-            <div className='Voluntário2'>
-              <div className="text-conteiner">
-                <h1 className='h11'>Olá Cliente, </h1>
-                <h1>Deseja se tornar</h1> 
-                <h1>um Cuidador?</h1>
-                <button className='button' onClick={() => nav('/login')}>Torne-se um cuidador</button>
-              </div>
-              <img className='Ajuda' src={Ajuda} alt="ajuda" />
-            </div>
-          </div>
-        </section>
+        </section> */}
       </main>
       <footer>
         <div className="footer-conteiner">

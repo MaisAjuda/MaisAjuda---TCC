@@ -1,6 +1,6 @@
 import './App2.css';
 import Senhor from '../assets/senhor.png';
-import MaisAjuda from '../assets/AJUDA.png';
+import MaisAjuda from '../assets/AJUDA-black.png';
 
 
  export function Area () {
@@ -15,8 +15,10 @@ import MaisAjuda from '../assets/AJUDA.png';
                     </div>
                     <div className='divAre2'>
                         <h1 className='H112'>Login</h1>
-                        <input type="email" placeholder='Email...' className='inp'/>
-                        <input type="password" placeholder='Senha...' className='inp'/><br />
+                        <label htmlFor="email"></label>
+                        <input name='email' type="email" placeholder='Email...' className='inp'/>
+                        <label htmlFor="senha"></label>
+                        <input type="password" name='senha' placeholder='Senha...' className='inp'/><br />
                         <button className='entrar'>Entrar</button><br /><br />
                         <img src={MaisAjuda} alt="maisAjuda" className='Mais' />
                     </div>

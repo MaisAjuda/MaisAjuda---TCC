@@ -14,8 +14,8 @@ ul{
 }
 
 body {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: #C4C4C4;
   font-family: 'Poppins', sans-serif;
 }
@@ -110,6 +110,7 @@ p {
   padding: 20px; 
 }
 
+#destaques
 
 .conteiner > p {
   font-family: 'Poppins', Arial, Helvetica, sans-serif;
@@ -157,21 +158,6 @@ button {
   }
 }
 h2{
-  text-align: center;
-}
-.avaliacao {
-  background-color: #3CA6A6;
-  width: 95%;
-  height: 35vh;
-  border-end-start-radius: 120px;
-  border-start-end-radius: 120px; 
-  margin: 4vh auto;
-  padding: 3vh;
-  display: flex; 
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  position: relative; 
   text-align: center;
 }
 
@@ -234,8 +220,7 @@ h1{
   margin: 10vh auto;
   border-radius: 50px;
 }
-
-.encontrar > h1 {
+ h1 {
   text-align: center;
   color: #026773;
 }
@@ -401,17 +386,20 @@ h2{
   margin-top: -0.5%;
 }
 .pp1{
-
-  text-align: right;
+  width: 33vw;
+  margin-left: 10vw;
   font-size: 1.5rem;
   font-family: "Roboto", 'Courier New', Courier, monospace;
   font-weight: 300;
   text-shadow: none;
   color:#0f0f0f;
-  margin-right: 47%;
 }
+
+
+
 .btnCuid{
-  margin-left: 27.5vw;
+  margin-left: 6vw;
+  margin-top: 10vh;
   width: 24vw;
   height: 7vh;
   font-size: 1.7rem;
@@ -419,18 +407,24 @@ h2{
   border-radius: 25px;
   font-weight: 300;
 }
-.linha-site2{
-  margin-top: 8%;
-  margin-left: 9%;
-  width: 80vw;
-  border: .1px solid black;
+
+.cuidador{
+  margin-bottom: 15vh;
+  margin-top: 15vh; 
+  display: flex;
 }
-.h1zinho{
-  color: #026773;
-  font-weight: 600;
+
+.conteiner-text{
+  margin-left: 15vw;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#text-cuidador{
+  width: 36.8vw;
   text-align: center;
-  margin-top: 5%;
-  font-family: "Roboto";
+  margin-left: 5vw;
 }
 .h11{
   color:#000000;
@@ -440,43 +434,33 @@ h2{
   text-shadow: none;
 }
 .imgacom{
-  width: 25vw;
+  width: 20vw;
   height: 30vh;
   padding: 1%;
-  margin-left: 12%;
   border-radius: 14%;
+  margin-left: 10vw;
+}
+#destaques{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.nome_espec{
+  text-align: center;
+}
+
+.conteiner-destaque_user{
+
+  margin-top: 10vh;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  text-align: center;
 }
 .imgmanin{
-  margin-left: 21%;
-  margin-top: 3%;
-  height: 7% ;
-  width: 5%;
-}
-.p11{
-margin-left: 15%;
-text-shadow: none;
-color: #000000;
-font-weight: 700;
-
-}
-.p12{
-text-align: center;
-text-shadow: none;
-color: #000000;
-font-weight: 700;
-}
-.p13{
-text-align: center;
-text-shadow: none;
-color: #000000;
-font-weight: 700;
-}
-.pes1{
-  margin-left: 6.5%;
-}
-.pes2{
-  margin-left: 10%;
-}
-.pes3{
-  margin-left: 10%;
+  height: 10vh;
+  width: 5vw;
+  border-radius: 100%;
+  box-shadow: 0.2vw 0.2vh #038D9D;
 }

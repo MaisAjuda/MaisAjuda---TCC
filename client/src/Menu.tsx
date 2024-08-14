@@ -165,21 +165,45 @@ function App() {
             <button id='buscar'>Buscar</button>
           </div>
         </section>
+
         <hr className='linha-site'/>
-          <h2>
-        Seja um cuidador! cadastre-se no
-        </h2>
-        <h2 className='h2link'>
-        link abaixo.
-        </h2>
-        <p className='pp1'>Há muitas oportunidades esperando por você!</p>
-        <button className='btnCuid'>Quero ser um cuidador</button>
-        <img src={acompanhante}  alt="acompanhante" className='imgacom'/>
-        <hr className='linha-site2'/>
-        <h1 className='h1zinho'>Destaques</h1>
-        <img src={manin} alt="homem no círculo"className='imgmanin'/><p className='p11'><p className='pes1'>🌟🌟🌟🌟🌟 </p> <br /><br />João Gabriel (Cuidador de pós-operatório)</p>
-        <img src={manin} alt="homem no círculo"className='imgmanin' /><p  className='p12'><p className='pes2'>🌟🌟🌟🌟🌟 </p><br /><br />Pricíla Meirelles (Cuidadora infantil)</p>
-        <img src={manin} alt="homem no círculo"className='imgmanin' /><p  className='p13'> <p className='pes3'>🌟🌟🌟🌟🌟</p> <br /><br />Flavio Ramos (Cuidador de Idosos)</p>
+
+        <section className='cuidador'>
+          <div className="conteiner-text">
+            <h2 id='text-cuidador'>
+            Seja um cuidador! cadastre-se no clique botão abaixo
+            </h2>
+            <p className='pp1'>Há muitas oportunidades esperando por você!</p>
+            <button className='btnCuid'>Quero ser um cuidador</button>  
+          </div>
+          <img src={acompanhante}  alt="acompanhante" className='imgacom'/>
+        </section>
+
+        <hr className='linha-site'/>
+        
+        <h1>Destaques</h1>
+        <section id='destaques'>
+
+          <div className="conteiner-destaque_user">
+            <img src={manin} alt="homem no círculo"className='imgmanin'/>
+            <p className='avaliacao'>🌟🌟🌟🌟🌟 </p>
+            <p className='nome_espec'>João Gabriel <br /> (Cuidador de pós-operatório)</p>
+          </div>
+
+          <div className="conteiner-destaque_user">
+            <img src={manin} alt="homem no círculo"className='imgmanin' />
+            <p className='avaliacao'>🌟🌟🌟🌟🌟 </p>
+            <p  className='nome_espec'>Pricíla Meirelles <br /> (Cuidadora infantil)</p>
+          </div>
+
+          <div className="conteiner-destaque_user">
+            <img src={manin} alt="homem no círculo"className='imgmanin' />
+            <p className='avaliacao'>🌟🌟🌟🌟🌟</p>
+            <p className='nome_espec'>Flavio Ramos <br /> (Cuidador de Idosos)</p>
+          </div>
+          
+        </section>
+        
       </main>
       <footer>
         <div className="footer-conteiner">

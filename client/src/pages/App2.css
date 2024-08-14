@@ -4,7 +4,7 @@
 .conteiner-are {
     width: 100vw;
     height: 100vh;
-    background: #013E4F;
+    background: #C4C4C4;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -23,16 +23,20 @@
 }
 
 .H2S{
+    position: absolute;
     text-align: justify;
-    margin-left: 2vw;
-    margin-right: 14.3vw;
+    top: 2vw;
+    left: 4vw;
     text-indent: -12px;
     line-height: 1em;
+    color: white;
 }
+
 .H1S{
     margin-top: 6vh;
     text-align: center;
     line-height: 1.1em;
+    color: white;
 }
 span{
     font-size: 0.3em;
@@ -42,43 +46,43 @@ span{
 }
 
 .senhor{
-    
-    height: 80%;
-    margin-left: 5%;
-    margin-top:-1%;
+    height: 10vh;
+    width: 20vw;
+    margin-left: 10vw;
 }
 
 .divAre2{
-position: relative;
-top: -40%; 
-height: 60%;
-width: 40%;
-background-color: #E2E2E2;
-margin-left: 55%;
-text-align: center;
-border-start-end-radius: 10px;
-border-end-end-radius: 10px;
+    position: relative;
+    top: -40%; 
+    height: 60%;
+    width: 40%;
+    background-color: whitesmoke;
+    margin-left: 55%;
+    text-align: center;
+    border-start-end-radius: 10px;
+    border-end-end-radius: 10px;
 }
 .Mais{
-margin-top: -35%;
-width: 85%;
+    margin-top: 0;
+    width: 85%;
 }
 .H112{
-color: #026773;
-font-size: 4rem;
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.387);
+    color: #026773;
+    font-size: 4rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.387);
 } 
 .inp{
-margin-top: 3%;
-width: 25vw;
-height: 7vh;
-cursor: pointer;
-border-radius: 1%;
-box-shadow: 0px 4px 7px #00000055;
-background-color: #ffffff;
-color: #000000;
-padding: 0 5%; 
-font-size: 150%;
+    margin-top: 3%;
+    border: none;
+    width: 25vw;
+    height: 7vh;
+    cursor: pointer;
+    border-radius: 1%;
+    box-shadow: 0px 4px 7px #00000055;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0 5%; 
+    font-size: 150%;
 }
 .inp:hover{
     cursor: text;

@@ -4,6 +4,9 @@ import maisajuda from './assets/MAIS-removebg-preview.png';
 import face from './assets/face.png';
 import insta from './assets/insta.png';
 import youtube from './assets/youtube.png';
+import acompanhante from './assets/acompanhante-de-idosos.jpg';
+import manin from './assets/icons8-usuário-homem-com-círculo-48.png'
+
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoPersonOutline } from "react-icons/io5";
@@ -112,15 +115,14 @@ function App() {
         <section>
           <div className='conteiner-slider'>
             <div className="img-1">
-              <h1>CONECTANDO CUIDADORES A QUEM PRECISA DE CUIDADOS DOMICILIARES</h1>
-              <p>O Mais Ajuda foi especialmente desenvolvida para ser uma solução tecnológica através da qual pessoas que precisam de CUIDADOS encontrem CUIDADORES.</p>
+              <h1 className='h11'>CONECTANDO CUIDADORES A QUEM PRECISA DE CUIDADOS DOMICILIARES</h1>
+              <p className='pp21'>O Mais Ajuda foi especialmente desenvolvida para ser uma solução tecnológica através da qual pessoas que precisam de CUIDADOS encontrem CUIDADORES.</p>
             </div>
           </div>
         </section>
 
         <section className='encontrar'>
           <h1>Encontre o cuidador ideal</h1>
-
           <div id="conteiner-selects">
             <div className="selects">
               <div id="input-1">
@@ -163,8 +165,21 @@ function App() {
             <button id='buscar'>Buscar</button>
           </div>
         </section>
-
         <hr className='linha-site'/>
+          <h2>
+        Seja um cuidador! cadastre-se no
+        </h2>
+        <h2 className='h2link'>
+        link abaixo.
+        </h2>
+        <p className='pp1'>Há muitas oportunidades esperando por você!</p>
+        <button className='btnCuid'>Quero ser um cuidador</button>
+        <img src={acompanhante}  alt="acompanhante" className='imgacom'/>
+        <hr className='linha-site2'/>
+        <h1 className='h1zinho'>Destaques</h1>
+        <img src={manin} alt="homem no círculo"className='imgmanin'/><p className='p11'><p className='pes1'>🌟🌟🌟🌟🌟 </p> <br /><br />João Gabriel (Cuidador de pós-operatório)</p>
+        <img src={manin} alt="homem no círculo"className='imgmanin' /><p  className='p12'><p className='pes2'>🌟🌟🌟🌟🌟 </p><br /><br />Pricíla Meirelles (Cuidadora infantil)</p>
+        <img src={manin} alt="homem no círculo"className='imgmanin' /><p  className='p13'> <p className='pes3'>🌟🌟🌟🌟🌟</p> <br /><br />Flavio Ramos (Cuidador de Idosos)</p>
       </main>
       <footer>
         <div className="footer-conteiner">

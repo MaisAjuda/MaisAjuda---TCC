@@ -174,7 +174,7 @@ function App() {
             Seja um cuidador! cadastre-se no clique botão abaixo
             </h2>
             <p className='pp1'>Há muitas oportunidades esperando por você!</p>
-            <button className='btnCuid'>Quero ser um cuidador</button>  
+            <button onClick={()=> nav('cadCuidador')}  className='btnCuid'>Quero ser um cuidador</button>  
           </div>
           <img src={acompanhante}  alt="acompanhante" className='imgacom'/>
         </section>

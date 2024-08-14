@@ -1,9 +1,9 @@
-import './App2.css';
-import Senhor from '../assets/senhor.png';
-import MaisAjuda from '../assets/AJUDA-black.png';
+import './Login.css';
+import Senhor from '../../assets/senhor.png';
+import MaisAjuda from '../../assets/AJUDA-black.png';
 
 
- export function Area () {
+ export function Login() {
     return(
         <>
             <div className='conteiner-are'>
@@ -11,7 +11,7 @@ import MaisAjuda from '../assets/AJUDA-black.png';
                             <h2 className='H2S'>Mais <br /> Ajuda</h2>
                             <img src={Senhor} alt="senhor" className='senhor' />
 
-                            <h1 className='H1S'>Área <br /> do <br /> Cuidador <br /> <span>Olá Cuidador seja Bem Vindo(a)</span></h1>
+                            <h1 className='H1S'>Seja Bem vindo (a) </h1>
                     </div>
                     <div className='divAre2'>
                         <h1 className='H112'>Login</h1>

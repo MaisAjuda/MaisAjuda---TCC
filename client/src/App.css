@@ -40,6 +40,10 @@ body {
   margin-bottom: 1.5vh;
 }
 
+.dropdown-select,.dropdown-list__item, #btn{
+  cursor: pointer;
+}
+
 nav {
   display: flex;
   justify-content: center;
@@ -276,6 +280,11 @@ h1{
 .dropdown-list__item{
   padding:1rem;
 }
+
+.dropdown-list__item:hover{
+  background-color: #C4C4C4;
+}
+
 .textoSelect{
   font-size: 1.3rem;
 }
@@ -370,10 +379,16 @@ article{
   margin-top: 8vh;
   margin-left: 22vw;
   width: 15vw;
+  cursor: pointer;
   height: 5vh;
   font-size: 1.7rem;
   font-family: 'Roboto', 'Courier New', Courier, monospace;
   border-radius: 25px;
+  transition: 0.2s ease-in-out;
+}
+#buscar:hover{
+  transition: 0.2s ease-in-out;
+  opacity: 0.5;
 }
 h2{
   color: #026773;
@@ -406,6 +421,13 @@ h2{
   font-family: 'Roboto', 'Courier New', Courier, monospace;
   border-radius: 25px;
   font-weight: 300;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.btnCuid:hover{
+  transition: 0.2s ease-in-out;
+  opacity: 0.5;
 }
 
 .cuidador{

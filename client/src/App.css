@@ -47,7 +47,6 @@ nav {
   justify-items:auto;
   height: 100%;
 }
-
 nav p {
   margin: 0 1vw; 
 }
@@ -328,9 +327,12 @@ article{
 .h22{
  margin-top: 10%;
  margin-left: -50%;
+ color: #C7C7C7;
 }
 .h2{
   margin-left: -106%;
+  color: #C7C7C7;
+  margin-top: -0.7%;
 }
 .face{
   width: 8%;
@@ -359,6 +361,7 @@ article{
 }
 .copy{
   text-align: center;
+  color: #C7C7C7;
 }
 .pp{
   margin-top: -12%;
@@ -370,7 +373,6 @@ article{
   color:#038D9D;
   width: 17vw; 
   margin-left: 35vw;
-  text-align: right;
 }
 
 .linha-site{
@@ -387,4 +389,94 @@ article{
   font-size: 1.7rem;
   font-family: 'Roboto', 'Courier New', Courier, monospace;
   border-radius: 25px;
+}
+h2{
+  color: #026773;
+  margin-top: 6%;
+  font-size: 2rem;
+  font-weight: 300;
+  margin-left: -20%;
+}
+.h2link{
+  margin-top: -0.5%;
+}
+.pp1{
+
+  text-align: right;
+  font-size: 1.5rem;
+  font-family: "Roboto", 'Courier New', Courier, monospace;
+  font-weight: 300;
+  text-shadow: none;
+  color:#0f0f0f;
+  margin-right: 47%;
+}
+.btnCuid{
+  margin-left: 27.5vw;
+  width: 24vw;
+  height: 7vh;
+  font-size: 1.7rem;
+  font-family: 'Roboto', 'Courier New', Courier, monospace;
+  border-radius: 25px;
+  font-weight: 300;
+}
+.linha-site2{
+  margin-top: 8%;
+  margin-left: 9%;
+  width: 80vw;
+  border: .1px solid black;
+}
+.h1zinho{
+  color: #026773;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 5%;
+  font-family: "Roboto";
+}
+.h11{
+  color:#000000;
+}
+.pp21{
+  color: #000000;
+  text-shadow: none;
+}
+.imgacom{
+  width: 25vw;
+  height: 30vh;
+  padding: 1%;
+  margin-left: 12%;
+  border-radius: 14%;
+}
+.imgmanin{
+  margin-left: 21%;
+  margin-top: 3%;
+  height: 7% ;
+  width: 5%;
+}
+.p11{
+margin-left: 15%;
+text-shadow: none;
+color: #000000;
+font-weight: 700;
+
+}
+.p12{
+text-align: center;
+text-shadow: none;
+color: #000000;
+font-weight: 700;
+}
+.p13{
+text-align: center;
+text-shadow: none;
+color: #000000;
+font-weight: 700;
+}
+.pes1{
+  margin-left: 6.5%;
+}
+.pes2{
+  margin-left: 10%;
+}
+.pes3{
+  margin-left: 10%;
 }

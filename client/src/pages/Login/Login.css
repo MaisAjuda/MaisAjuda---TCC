@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     background: #C4C4C4;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
 .divAre {
@@ -34,7 +34,7 @@
 
 .H1S{
     margin-top: 23vh;
-    font-family: 'Montserrat';
+    font-family: 'Poppins';
     margin-left: 31vw;
     text-align: center;
     line-height: 1.1em;

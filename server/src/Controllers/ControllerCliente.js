@@ -12,7 +12,7 @@ module.exports = {
             }
     
             
-            const cliente = await knex('cliente')
+            const cliente = await knex('clientes')
                 .select('cli_email', 'cli_senha')
                 .where({ cli_email, cli_senha })
                 .first();
@@ -34,7 +34,7 @@ module.exports = {
 
     async getClientes(req, res) {
         try {
-            const listacliente = await knex('cliente');
+            const listacliente = await knex('clientes');
             console.log(listacliente);
             res.status(200).send(listacliente);
         } catch (error) {
@@ -51,8 +51,8 @@ module.exports = {
                 return res.status(400).send('Campos obrigatórios faltando');
             }
     
-            await knex('cliente').insert({
-                cli_cpf: cli_cpf,      
+            await knex('clientes').insert({
+                cli_cpf: cli_cpf,       
                 cli_nome: cli_nome,
                 cli_email: cli_email,
                 cli_cep: cli_cep,
@@ -81,7 +81,7 @@ module.exports = {
             }
     
             
-            const resultado = await knex('cliente')
+            const resultado = await knex('clientes')
                 .where({ cli_cpf })
                 .update({
                     cli_nome: cli_nome,
@@ -100,6 +100,19 @@ module.exports = {
         } catch (error) {
             console.error(error);
             res.status(500).send({ error: 'Erro ao atualizar cliente' });
+        }
+    },
+
+    async deleteCliente(req,res){
+        try {
+
+            const { cli_cpf } = req.body
+            const resut = await knex('clientes').where({ cli_cpf }).del()
+        
+            return res.status(200).send("Cliente deletado com sucesso!!!")
+        } catch (error) {
+            console.log(error)
+            return res.status(400).send('Erro ao deletar cliente')
         }
     }
     

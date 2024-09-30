@@ -11,5 +11,8 @@ Router.get('/', ConstrollerCliente.getClientes)
 
 Router.post('/loginCui', ControllerCuidador.loginCuidador)
 Router.get('/cuidador', ControllerCuidador.getCuidador)
+Router.post('/cuidador', ControllerCuidador.criarCuidador)
+Router.put('/cuidador', ControllerCuidador.alterarCuidador)
+Router.delete('/cuidador', ControllerCuidador.deletarCuidador)
 
 module.exports = Router

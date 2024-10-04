@@ -1,77 +1,153 @@
 const knex = require("../database");
 
 module.exports = {
-    async criarCuidado(req, res) {
+    async criarAssistencia(req,res){
         try {
-            const { cui_cpf, cli_cpf, cnd_descri, cnd_grau_parent, esp_id } = req.body;
+            const { ass_data_fim, cui_cpf, cli_cpf, cnd_id } = req.body
 
-            if (!cui_cpf || !cli_cpf || !cnd_descri || !cnd_grau_parent || !esp_id) {
-                return res.status(400).send('Todos os campos devem ser preenchidos');
+            if (ass_data_fim) {
+                console.log("data fim existe");
+    
+            
+                let dataInicioObj = new Date();
+                let dataFimObj = new Date(ass_data_fim);
+    
+                
+                let formattedDateInicio = dataInicioObj.getDate().toString().padStart(2, '0') + '/' +
+                    (dataInicioObj.getMonth() + 1).toString().padStart(2, '0') + '/' +
+                    dataInicioObj.getFullYear();
+                console.log("Data de Início: ", formattedDateInicio);
+    
+                if (dataFimObj < dataInicioObj) {
+                    console.log('A data de término é menor que a data de início');
+                    return res.status(400).send("A data de fim não pode ser menor que a data de início.");
+                }
             }
 
-            await knex('cuidado').insert({
-                cui_cpf,
-                cli_cpf,
-                cnd_descri,
-                cnd_grau_parent,
-                esp_id
-            });
+            if(!ass_data_fim || !cui_cpf || !cli_cpf || !cnd_id){
+                return res.status(400).send("Preencha todos os campos")
+            }
+            
+            if(typeof(cnd_id) != "number"){
+                return res.status(400).send("Os campos estão inválidos, verifique se a tipagem dos dados está correta");
+            }
 
-            res.status(201).send('Cuidado registrado');
+            let cpf_cuidador = await knex('cuidador').where({ cui_cpf  })
+            let cpf_cliente = await knex('cliente').where({ cli_cpf  })
+            let id_cuidado = await knex('cuidado').where({ cnd_id  })
+
+            if(!cpf_cliente || cpf_cliente.length == 0){
+                return res.status(400).send("Cpf do cliente não encontrado")
+            }
+
+            if(!cpf_cuidador || cpf_cuidador.length == 0){
+                return res.status(400).send("Cpf do cuidador não encontrado")
+            }
+            if(!id_cuidado || id_cuidado.length == 0){
+                return res.status(400).send("Id do cuidado não encontrado")
+            }
+
+            await knex('assistencia').insert({
+                ass_data_fim: ass_data_fim,
+                cui_cpf: cui_cpf,
+                cli_cpf: cli_cpf,
+                cnd_id: cnd_id
+            })
+
+            res.status(201).send('Assistencia registrada!')
         } catch (error) {
-            console.error(error);
-            res.status(500).send('Erro ao registrar o cuidado');
+            console.log(error)
+            res.status(500).send("Erro ao registrar assistência")
         }
     },
-    async getCuidados(req,res){
+    async getAssistencia(req,res){
         try {
-            const listaCuidados = await knex('cuidado')
+        
+            const listaAssistencia = await knex('assistencia')
 
-            res.status(201).send(listaCuidados);
+            res.status(200).send(listaAssistencia)
+            
+
         } catch (error) {
             console.log(error)
         }
     },
-    async alterarCuidado(req, res) {
+
+    async alterarAssistencia(req, res) {
         try {
-            const { cnd_id,cui_cpf, cli_cpf, cnd_descri, cnd_grau_parent, esp_id } = req.body;
-
-            if (!cnd_id) {
-                return res.status(400).send('O id do cuidado é obrigatório');
+            const { ass_id, ass_data_fim, cui_cpf, cli_cpf, cnd_id } = req.body;
+    
+            if (!ass_id) {
+                return res.status(400).send("O ID da Assistência é obrigatório");
             }
-
-            const result = await knex('cuidado')
-                .where({ cnd_id })  
+    
+            if (!ass_data_fim && !cui_cpf && !cli_cpf && !cnd_id) {
+                return res.status(400).send("Preencha no mínimo um dos campos");
+            }
+    
+            
+            let dataInicioResult = await knex('assistencia')
+                .select("ass_data_inicio")
+                .where({ ass_id });
+    
+            console.log(dataInicioResult)
+            if (!dataInicioResult || dataInicioResult.length === 0) {
+                return res.status(404).send("Assistência não encontrada.");
+            }
+    
+            let data_incio = dataInicioResult[0].ass_data_inicio;
+    
+            
+            if (ass_data_fim) {
+                console.log("data fim existe");
+    
+            
+                let dataInicioObj = new Date(data_incio);
+                let dataFimObj = new Date(ass_data_fim);
+    
+                
+                let formattedDateInicio = dataInicioObj.getDate().toString().padStart(2, '0') + '/' +
+                    (dataInicioObj.getMonth() + 1).toString().padStart(2, '0') + '/' +
+                    dataInicioObj.getFullYear();
+                console.log("Data de Início: ", formattedDateInicio);
+    
+                if (dataFimObj < dataInicioObj) {
+                    console.log('A data de término é menor que a data de início');
+                    return res.status(400).send("A data de fim não pode ser menor que a data de início.");
+                }
+            }
+    
+            
+            await knex('assistencia')
+                .where({ ass_id: ass_id })
                 .update({
-                    cui_cpf,
-                    cnd_descri,
-                    cnd_grau_parent,
-                    esp_id
+                    ass_data_fim: ass_data_fim,
+                    cui_cpf: cui_cpf,
+                    cli_cpf: cli_cpf,
+                    cnd_id: cnd_id
                 });
-
-            if (result === 0) {
-                return res.status(404).send('Cuidado não encontrado');
-            }
-
-            res.status(200).send('Cuidado atualizado com sucesso');
+    
+            res.status(200).send('Assistência atualizada com sucesso!');
         } catch (error) {
-            console.error(error);
-            res.status(500).send('Erro ao atualizar o cuidado');
+            console.log(error);
+            res.status(500).send('Erro ao atualizar a assistência.');
         }
-    }, 
-    async deleteCuidado(req,res){
-        try {
-            const { cnd_id } = req.body
+    },
 
-            if(!cnd_id){
-                res.send("O id do cuidado é necessário para completar a ação")
+    async deletarAssistencia(req,res){
+        try {
+            const {ass_id} = req.body
+
+            if(!ass_id){
+                return res.status(400).send("ID da assistência não informado.");
             }
 
-            await knex('cuidado').delete()
+            await knex('assistencia').where({ass_id}).delete()
 
-            res.status(200).send('cuidado deletado com sucesso')
+            res.status(200).send('Assistencia deletada com sucesso!');
+
         } catch (error) {
             console.log(error)
         }
     }
-};
+}

@@ -1,4 +1,5 @@
 const knex = require("../database"); 
+const { validaCPF } = require("../modules/verificarCPF");
 
 module.exports = {
     async loginCliente(req, res) {
@@ -12,7 +13,7 @@ module.exports = {
             }
     
             
-            const cliente = await knex('clientes')
+            const cliente = await knex('cliente')
                 .select('cli_email', 'cli_senha')
                 .where({ cli_email, cli_senha })
                 .first();
@@ -32,14 +33,14 @@ module.exports = {
         }
     },    
 
-    async getClientes(req, res) {
+    async getcliente(req, res) {
         try {
-            const listacliente = await knex('clientes');
+            const listacliente = await knex('cliente');
             console.log(listacliente);
             res.status(200).send(listacliente);
         } catch (error) {
             console.error(error); 
-            res.status(500).send({ error: 'Erro ao buscar clientes' });
+            res.status(500).send({ error: 'Erro ao buscar cliente' });
         }
     },
 
@@ -50,8 +51,14 @@ module.exports = {
             if (!cli_nome || !cli_email || !cli_senha) {
                 return res.status(400).send('Campos obrigatórios faltando');
             }
+
+            if(!validaCPF(cli_cpf)){
+                return res.status(400).send("CPF inválido")
+            }
+
+            
     
-            await knex('clientes').insert({
+            await knex('cliente').insert({
                 cli_cpf: cli_cpf,       
                 cli_nome: cli_nome,
                 cli_email: cli_email,
@@ -81,7 +88,7 @@ module.exports = {
             }
     
             
-            const resultado = await knex('clientes')
+            const resultado = await knex('cliente')
                 .where({ cli_cpf })
                 .update({
                     cli_nome: cli_nome,
@@ -107,7 +114,7 @@ module.exports = {
         try {
 
             const { cli_cpf } = req.body
-            const resut = await knex('clientes').where({ cli_cpf }).del()
+            const resut = await knex('cliente').where({ cli_cpf }).del()
         
             return res.status(200).send("Cliente deletado com sucesso!!!")
         } catch (error) {

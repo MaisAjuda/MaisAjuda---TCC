@@ -1,5 +1,4 @@
 const knex = require("../database"); 
-const { alterarCliente } = require("./ControllerCliente");
 
 module.exports = {
     async loginCuidador(req, res) {
@@ -48,6 +47,10 @@ module.exports = {
             
             if (!cui_cpf && !cui_nome && !cui_email && !cui_cep && !cui_senha && !cui_tel && !esp_id && !cui_descri && !cui_sexo && !cui_data_nasc) {
                 return res.status(400).send('Todos os campos devem ser preenchidos');
+            }
+
+            if(!verificarCPF(cui_cpf)){
+                return res.status(400).send("CPF inválido")
             }
 
             await knex('cuidador').insert({

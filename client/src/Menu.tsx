@@ -96,15 +96,27 @@ function App() {
       });
     }
   }
+  function NavSn() {
+    nav('/sobreNos')
+    
+  }
+  function NavDp() {
+    nav('/depoimentos')
+    
+  }
+  function NavCtt() {
+    nav('/contato')
+    
+  }
 
   return (
     <>
       <header className='header'>
         <img src={logo} className='logo' alt="logo-mais-ajuda" />
         <nav>
-          <p className='p'><a href='#'>Sobre Nós</a></p>
-          <p className='p'><a href='#'>Depoimentos</a></p>
-          <p className='p'><a href='#'>Contato</a></p>
+          <p className='p' onClick={NavSn}>Sobre Nós</p>
+          <p className='p' onClick={NavDp}>Depoimentos</p>
+          <p className='p' onClick={NavCtt}>Contato</p>
           <p>|</p>
           <p className='p' onClick={() => nav('/login')}><IoPersonOutline /> Entrar</p>
         </nav>

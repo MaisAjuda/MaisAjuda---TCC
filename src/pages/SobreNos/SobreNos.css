@@ -1,0 +1,94 @@
+
+#SobreNos{
+    margin-top: 2%;
+    font-weight: 90;
+}
+
+.Paragrafo1{
+    margin-top: 1%;
+    color: black;
+    text-shadow: none;
+    text-align: center;
+    font-size: 150%;
+    font-weight: 300;
+}
+
+#NossosCuid{
+    margin-top: 2%;
+    font-weight: 100;
+    font-size: 280%;
+}
+
+.P2{
+    text-shadow: none;
+    font-size: 200%;
+    color: #026773;
+    margin-left: 35%;
+}
+
+.P3{
+    text-shadow: none;
+    font-size: 200%;
+    color: #026773;
+    margin-left: 21%;
+}
+
+.P4{
+    text-shadow: none;
+    font-size: 200%;
+    color: #026773;
+    margin-left: 30%;
+}
+
+.P5{
+    text-shadow: none;
+    font-size: 200%;
+    color: #026773;
+    margin-left: 19%;
+}
+
+
+.Pcd{
+    margin-top: 2%;
+    border: 1px solid #026773;
+    width: 15%;
+    margin-left: 5%;
+    box-shadow: 2px 4px 10px black;
+    border-radius: 10%;
+}
+.Pós{
+    margin-top: -3%;
+    border: 1px solid #026773;
+    width: 20%;
+    margin-left: 23%;
+    box-shadow: 2px 4px 10px black;
+    border-radius: 10%;
+}
+.Idosos{
+    margin-top: -25%;
+    border: 1px solid #026773;
+    width: 14%;
+    margin-left: 50%;
+    box-shadow: 2px 4px 10px black;
+    border-radius: 10%;
+}
+.Recem{
+    margin-top: -2%;
+    border: 1px solid #026773;
+    width: 20%;
+    margin-left: 70%;
+    box-shadow: 2px 4px 10px black;
+    border-radius: 10%;
+}
+.imgpcd{
+    border-radius: 10%;
+}
+.imgpos{
+    border-radius: 10%;
+}
+.imgidoso{
+    border-radius: 10%;
+}
+.imgbebe{
+    border-radius: 10%;
+}

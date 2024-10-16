@@ -35,10 +35,7 @@ body {
   
 }
 
-.logo {
-  height: 35vh;
-  margin-bottom: 1.5vh;
-}
+
 
 .dropdown-select,.dropdown-list__item, #btn{
   cursor: pointer;
@@ -262,14 +259,19 @@ h1{
   font-size: 1.4rem;
 }
 
-#dropdown-list{
-  border-radius: 14px;
+.input-cep{
+  border: none;
+  outline: none;
+  width: 40%;
+  height: 5vh;
+  border-radius: 40px;
+  padding-left: 1%;
+  padding-top:0.6%;
   background-color: #B9B9B9;
-  position: absolute;
-  width: 23vw;
-  z-index: 999;
+  font-size: 1.3rem;
 }
-#dropdown-list-1{
+
+#dropdown-list{
   border-radius: 14px;
   background-color: #B9B9B9;
   position: absolute;
@@ -283,6 +285,7 @@ h1{
 
 .dropdown-list__item:hover{
   background-color: #C4C4C4;
+  border-radius: 14px;
 }
 
 .textoSelect{

@@ -1,25 +1,18 @@
 import { useState } from 'react';
-import logo from './assets/AJUDA.png';
-import maisajuda from './assets/MAIS-removebg-preview.png';
-import face from './assets/face.png';
-import insta from './assets/insta.png';
-import youtube from './assets/youtube.png';
+import { Footer } from './components/Footer/Footer';
 import acompanhante from './assets/acompanhante-de-idosos.jpg';
 import manin from './assets/icons8-usuário-homem-com-círculo-48.png'
-
-import { RxHamburgerMenu } from "react-icons/rx";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { IoPersonOutline } from "react-icons/io5";
 import { gsap } from "gsap";
 import './App.css';
 import { useNavigate } from 'react-router-dom';
+import { Header } from './components/Header/Header';
+import InputMask from 'react-input-mask';
 
 function App() {
   const nav = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
-  const [dropdownOpen_1, setDropdownOpen_1] = useState<boolean>(false);
   const [selectCuid, setSelectCuid] = useState<string>("");
-  const [selectCid, setSelectCid] = useState<string>("");
 
 
 
@@ -27,17 +20,6 @@ function App() {
     setSelectCuid(option);
     setDropdownOpen(false);
     gsap.to("#dropdown-list", {
-      opacity: 0,
-      x: -10,
-      y: -10,
-      duration: 0.3
-    });
-  }
-
-  function handleCidChange(option: string) {
-    setSelectCid(option);
-    setDropdownOpen_1(false);
-    gsap.to("#dropdown-list-1", {
       opacity: 0,
       x: -10,
       y: -10,
@@ -71,57 +53,10 @@ function App() {
     }
   }
 
-  function toggleDropdown1() {
-    const newDropdownOpen_1 = !dropdownOpen_1;
-    setDropdownOpen_1(newDropdownOpen_1);
-    if (newDropdownOpen_1) {
-      gsap.from("#dropdown-list-1", {
-        opacity: 0,
-        x: -10,
-        y: -10,
-        duration: 0.3
-      });
-      gsap.to("#dropdown-list-1", {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        duration: 0.3
-      });
-    } else {
-      gsap.to("#dropdown-list-1", {
-        opacity: 0,
-        x: -10,
-        y: -10,
-        duration: 0.3
-      });
-    }
-  }
-  function NavSn() {
-    nav('/sobreNos')
-    
-  }
-  function NavDp() {
-    nav('/depoimentos')
-    
-  }
-  function NavCtt() {
-    nav('/contato')
-    
-  }
-
   return (
     <>
-      <header className='header'>
-        <img src={logo} className='logo' alt="logo-mais-ajuda" />
-        <nav>
-          <p className='p' onClick={NavSn}>Sobre Nós</p>
-          <p className='p' onClick={NavDp}>Depoimentos</p>
-          <p className='p' onClick={NavCtt}>Contato</p>
-          <p>|</p>
-          <p className='p' onClick={() => nav('/login')}><IoPersonOutline /> Entrar</p>
-        </nav>
-        <RxHamburgerMenu className='menu-hamburguer'/>
-      </header>
+      
+      <Header></Header>
 
       <main>
         <section>
@@ -157,20 +92,17 @@ function App() {
               </div>
 
               <div id="input-2">
-                <label htmlFor="cidade">De qual cidade você é?</label>
-                <div onClick={toggleDropdown1} className="dropdown-select">
-                  { selectCid ? <span className='textoSelect'>{selectCid}</span> : <span className='textoSelect'>Selecione</span>}
-                  <IoMdArrowDropdown className='seta'/>
-                </div>
-                <div id='dropdown-list-1' className={`dropdown-list-1 ${dropdownOpen_1 ? 'show' : 'hide'}`}>
-                  <div onClick={() => handleCidChange('Volta Redonda')} className="dropdown-list__item"><span className='textoSelect'>Volta Redonda</span></div>
-                  <hr />
-                  <div onClick={() => handleCidChange('Barra Mansa')} className="dropdown-list__item"><span className='textoSelect'>Barra Mansa</span></div>
-                  <hr />
-                  <div onClick={() => handleCidChange('Barra do Piraí')} className="dropdown-list__item"><span className='textoSelect'>Barra do Piraí</span></div>
-                  <hr />
-                  <div onClick={() => handleCidChange('Vassouras')} className="dropdown-list__item"><span className='textoSelect'>Vassouras</span></div>
-                </div>
+                <label htmlFor="cidade">Informe seu CEP</label><br />
+                <InputMask
+                  className="input-cep"
+                  mask="99999-999"
+                  type="text"
+                  name="cpf"
+                  id="form-cpf"
+                  title="Digite um CEP no formato: xxxxx-xxx"
+                  required
+
+                />
               </div>
             </div>
             <p className='pp'>Para quem precisa de acompanhamento domiciliar para si ou para seus familiares.</p>
@@ -217,28 +149,7 @@ function App() {
         </section>
         
       </main>
-      <footer>
-        <div className="footer-conteiner">
-          <img src={maisajuda} alt="logo-mais-ajuda" />
-          <article className='article'>
-            <p className='para'>Contatos</p>
-            <ul>
-              <li>contato@maisajuda.com</li>
-              <li>(00) 00000-0000</li>
-              <li>(00) 00000-0000</li>
-              <li>(00) 00000-0000</li>
-            </ul>
-            <h2 className='h22'>Siga o Mais Ajuda nas redes </h2>
-            <h2 className='h2'>sociais</h2>
-            <div className='imgRedes'>
-              <img className='face' src={face} alt="facebook" />
-              <img className='insta' src={insta} alt="instagram" />
-              <img className='youtube' src={youtube} alt="youtube" />
-            </div>
-          </article>
-        </div>
-        <p className='copy'>© Copyright 2024-2025 maisajuda.com.br - All Rights Reserved - MaisAjuda</p>
-      </footer>
+      <Footer></Footer>
     </>
   );
 }

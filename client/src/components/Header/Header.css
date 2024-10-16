@@ -1,0 +1,14 @@
+.logo {
+    height: 7vh;
+    margin-bottom: auto;
+  }
+.p{
+  font-size: 1.4rem;
+  transition: all 3ms ease-in-out;
+}
+.p:hover{
+  transition: all 3ms ease-in-out ;
+  color: #026773;
+  font-size: 1.5vw;
+  transition: 3ms ease-in-out;
+}

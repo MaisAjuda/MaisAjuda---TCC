@@ -5,6 +5,7 @@ import { CadCuidador } from "./pages/CadCuidador/CadCuidador";
 import { SobreNos } from "./pages/SobreNos/SobreNos";
 import { Depoimentos } from "./pages/Depoimentos/Depoimentos";
 import { Contato } from "./pages/Contato/Contato";
+
 export function RouteApp(){
     return(
         <BrowserRouter>
@@ -15,6 +16,7 @@ export function RouteApp(){
                 <Route path="/sobreNos" element={<SobreNos />} />
                 <Route path="/depoimentos" element={<Depoimentos />} />
                 <Route path="/contato" element={<Contato />} />
+                
             </Routes>
         </BrowserRouter>
     )

@@ -60,15 +60,15 @@
     margin-top: -3%;
     border: 1px solid #026773;
     width: 20%;
-    margin-left: 23%;
+    margin-left: 27%;
     box-shadow: 2px 4px 10px black;
     border-radius: 10%;
 }
 #Idosos{
     margin-top: -25%;
     border: 1px solid #026773;
-    width: 14%;
-    margin-left: 50%;
+    width: 15%;
+    margin-left: 53%;
     box-shadow: 2px 4px 10px black;
     border-radius: 10%;
 }
@@ -76,19 +76,23 @@
     margin-top: -2%;
     border: 1px solid #026773;
     width: 20%;
-    margin-left: 70%;
+    margin-left: 75%;
     box-shadow: 2px 4px 10px black;
     border-radius: 10%;
 }
 .imgpcd{
+    width: 100%;
     border-radius: 10%;
 }
 .imgpos{
+    width: 100%;
     border-radius: 10%;
 }
 .imgidoso{
+    width: 100%;
     border-radius: 10%;
 }
 .imgbebe{
+    width: 100%;
     border-radius: 10%;
 }

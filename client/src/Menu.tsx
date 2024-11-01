@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Footer } from './components/Footer/Footer';
 import acompanhante from './assets/acompanhante-de-idosos.jpg';
 import manin from './assets/icons8-usuário-homem-com-círculo-48.png'
@@ -8,12 +8,10 @@ import './App.css';
 import { useNavigate } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import InputMask from 'react-input-mask';
-
-function App() {
+function Menu() {
   const nav = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [selectCuid, setSelectCuid] = useState<string>("");
-
 
 
   function handleCuidChange(option: string) {
@@ -154,4 +152,4 @@ function App() {
   );
 }
 
-export default App;
+export default Menu;

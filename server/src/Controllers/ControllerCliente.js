@@ -1,37 +1,7 @@
 const knex = require("../database"); 
 const { validaCPF } = require("../modules/verificarCPF");
 
-module.exports = {
-    async loginCliente(req, res) {
-        try {
-            console.log('Request body:', req.body);
-            const { cli_email, cli_senha } = req.body;
-    
-           
-            if (!cli_email || !cli_senha) {
-                return res.status(400).send('Email e senha são obrigatórios');
-            }
-    
-            
-            const cliente = await knex('cliente')
-                .select('cli_email', 'cli_senha')
-                .where({ cli_email, cli_senha })
-                .first();
-    
-            if (cliente) {
-              
-                res.status(200).send('Login bem-sucedido');
-            } else {
-               
-                res.status(400).send('Email ou senha incorretos');
-            }
-    
-        } catch (err) {
-            console.error(err); 
-        
-            res.status(500).send('Erro no servidor');
-        }
-    },    
+module.exports = { 
 
     async getcliente(req, res) {
         try {

@@ -1,34 +1,6 @@
 const knex = require("../database"); 
 
 module.exports = {
-    async loginCuidador(req, res) {
-        try {
-            console.log('Request body:', req.body);
-            const { cui_email, cui_senha } = req.body
-
-            if (!cui_email || !cui_senha) {
-                return res.status(400).send('Email e senha são obrigatórios');
-            }
-
-            const cliente = await knex('cuidador')
-            .select('cui_email', 'cui_senha')
-            .where({ cui_email, cui_senha })
-            .first();
-
-            if (cliente) {
-            
-                res.status(200).send('Login bem-sucedido');
-            } else {
-            
-                res.status(400).send('Email ou senha incorretos');
-            }
-
-        } catch (err) {
-            console.error(err); 
-        
-            res.status(500).send('Erro no servidor');
-        }
-    },
     async getCuidador(req,res){
         try {
             

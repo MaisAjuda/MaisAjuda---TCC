@@ -3,7 +3,7 @@ const knex = require("../database");
 module.exports = {
     async criarAssistencia(req,res){
         try {
-            const { ass_data_fim, cui_cpf, cli_cpf, cnd_id } = req.body
+            const { ass_data_fim, not_id } = req.body
 
             if (ass_data_fim) {
                 console.log("data fim existe");
@@ -24,34 +24,19 @@ module.exports = {
                 }
             }
 
-            if(!ass_data_fim || !cui_cpf || !cli_cpf || !cnd_id){
+            if(!ass_data_fim || !not_id){
                 return res.status(400).send("Preencha todos os campos")
             }
             
-            if(typeof(cnd_id) != "number"){
-                return res.status(400).send("Os campos estão inválidos, verifique se a tipagem dos dados está correta");
-            }
-
-            let cpf_cuidador = await knex('cuidador').where({ cui_cpf  })
-            let cpf_cliente = await knex('cliente').where({ cli_cpf  })
-            let id_cuidado = await knex('cuidado').where({ cnd_id  })
-
-            if(!cpf_cliente || cpf_cliente.length == 0){
-                return res.status(400).send("Cpf do cliente não encontrado")
-            }
-
-            if(!cpf_cuidador || cpf_cuidador.length == 0){
-                return res.status(400).send("Cpf do cuidador não encontrado")
-            }
-            if(!id_cuidado || id_cuidado.length == 0){
-                return res.status(400).send("Id do cuidado não encontrado")
-            }
+                        let notify = await knex('notificacao').where({ not_id  })
+                        if(!notify || notify.length == 0){
+                            return res.status(400).send("Notificação não encontrada")
+                        }
+            
 
             await knex('assistencia').insert({
                 ass_data_fim: ass_data_fim,
-                cui_cpf: cui_cpf,
-                cli_cpf: cli_cpf,
-                cnd_id: cnd_id
+                not_id: not_id
             })
 
             res.status(201).send('Assistencia registrada!')

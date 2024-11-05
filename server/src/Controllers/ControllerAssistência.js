@@ -41,8 +41,10 @@ module.exports = {
 
             res.status(201).send('Assistencia registrada!')
         } catch (error) {
-            console.log(error)
-            res.status(500).send("Erro ao registrar assistência")
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     },
     async getAssistencia(req,res){
@@ -114,8 +116,10 @@ module.exports = {
     
             res.status(200).send('Assistência atualizada com sucesso!');
         } catch (error) {
-            console.log(error);
-            res.status(500).send('Erro ao atualizar a assistência.');
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     },
 
@@ -132,7 +136,10 @@ module.exports = {
             res.status(200).send('Assistencia deletada com sucesso!');
 
         } catch (error) {
-            console.log(error)
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     }
 }

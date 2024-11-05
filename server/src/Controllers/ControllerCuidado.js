@@ -19,8 +19,10 @@ module.exports = {
 
             res.status(201).send('Cuidado registrado');
         } catch (error) {
-            console.error(error);
-            res.status(500).send('Erro ao registrar o cuidado');
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     },
     async getCuidados(req,res){
@@ -55,8 +57,10 @@ module.exports = {
 
             res.status(200).send('Cuidado atualizado com sucesso');
         } catch (error) {
-            console.error(error);
-            res.status(500).send('Erro ao atualizar o cuidado');
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     }, 
     async deleteCuidado(req,res){
@@ -71,7 +75,10 @@ module.exports = {
 
             res.status(200).send('cuidado deletado com sucesso')
         } catch (error) {
-            console.log(error)
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     }
 };

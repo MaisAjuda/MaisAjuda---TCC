@@ -13,6 +13,7 @@ Router.delete('/cliente', ControllerCliente.deleteCliente)
 Router.get('/cliente', ConstrollerCliente.getcliente)
 
 Router.get('/cuidador', ControllerCuidador.getCuidador)
+Router.post('/cuidador/login', ControllerCuidador.loginCuidador)
 Router.post('/cuidador', ControllerCuidador.criarCuidador)
 Router.put('/cuidador', ControllerCuidador.alterarCuidador)
 Router.delete('/cuidador', ControllerCuidador.deletarCuidador)

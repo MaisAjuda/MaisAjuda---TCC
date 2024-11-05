@@ -1,5 +1,6 @@
 const knex = require("../database"); 
 const { validaCPF } = require("../modules/verificarCPF");
+const bycrypt = require('bcrypt')
 
 module.exports = { 
 
@@ -9,8 +10,10 @@ module.exports = {
             console.log(listacliente);
             res.status(200).send(listacliente);
         } catch (error) {
-            console.error(error); 
-            res.status(500).send({ error: 'Erro ao buscar cliente' });
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     },
 
@@ -26,21 +29,35 @@ module.exports = {
                 return res.status(400).send("CPF inválido")
             }
 
-            
+            try {
+                const response = await fetch(`https://viacep.com.br/ws/${cli_cep}/json/`);
+                const data = await response.json();
+                if (data.erro) {
+                    return { valido: false, mensagem: 'CEP não encontrado' };
+                }
+            } catch (error) {
+                return { valido: false, mensagem: 'Erro ao consultar CEP' };
+            }
+
+            const cli_senha_encrypt = await bycrypt.hash(cli_senha, 10)
+
+
     
             await knex('cliente').insert({
                 cli_cpf: cli_cpf,       
                 cli_nome: cli_nome,
                 cli_email: cli_email,
                 cli_cep: cli_cep,
-                cli_senha: cli_senha,
+                cli_senha: cli_senha_encrypt,
                 cli_tel: cli_tel
             });
     
             res.status(200).send('Usuário cadastrado com sucesso');
         } catch (error) {
-            console.error(error); 
-            res.status(500).send({ error: 'Erro ao criar usuário' });
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     },
 
@@ -75,8 +92,10 @@ module.exports = {
     
             res.status(200).send('Cliente atualizado com sucesso');
         } catch (error) {
-            console.error(error);
-            res.status(500).send({ error: 'Erro ao atualizar cliente' });
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     },
 
@@ -88,8 +107,10 @@ module.exports = {
         
             return res.status(200).send("Cliente deletado com sucesso!!!")
         } catch (error) {
-            console.log(error)
-            return res.status(400).send('Erro ao deletar cliente')
+            return res.status(500).json({
+                error: "Erro",
+                msg: error
+            });
         }
     }
     

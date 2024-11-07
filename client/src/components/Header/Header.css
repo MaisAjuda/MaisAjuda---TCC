@@ -1,5 +1,5 @@
 .logo {
-    height: 7vh;
+    width: 25vh;
     margin-bottom: auto;
   }
 
@@ -9,5 +9,11 @@
   }
   .menu-hamburguer{
     display: none;
+  }
+  .home{
+    
+  }
+  .p-home{
+    margin-left: 0;
   }
 

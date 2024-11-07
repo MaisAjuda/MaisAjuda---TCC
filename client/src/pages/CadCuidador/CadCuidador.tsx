@@ -4,7 +4,7 @@ import InputMask from 'react-input-mask';
 export function CadCuidador() {
     return(
         <>
-            <header>
+            <header id='header'>
                 <h1>Torne-se um Cuidador</h1>
             </header>
             <main className='main'>

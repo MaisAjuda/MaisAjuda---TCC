@@ -14,7 +14,7 @@ export function RouteApp(){
                 <Route path="/login" element={<Login/>} />
                 <Route path="/cadCuidador" element={<CadCuidador/>} />
                 <Route path="/sobreNos" element={<SobreNos />} />
-                <Route path="/depoimentos" element={<Depoimentos />} />
+                <Route path="/" element={<Menu />} />
                 <Route path="/contato" element={<Contato />} />
                 
             </Routes>

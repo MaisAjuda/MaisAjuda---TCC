@@ -301,7 +301,6 @@ label{
 }
 
 footer{
-  margin-top: 10%;
   background-color: #012340;
   height: 100%;
 }
@@ -379,7 +378,7 @@ article{
 }
 
 #buscar{
-  margin-top: 8vh;
+  margin-top: 6vh;
   margin-left: 22vw;
   width: 15vw;
   cursor: pointer;
@@ -387,6 +386,7 @@ article{
   font-size: 1.7rem;
   font-family: 'Roboto', 'Courier New', Courier, monospace;
   border-radius: 25px;
+  text-align: center;
   transition: 0.2s ease-in-out;
 }
 #buscar:hover{
@@ -415,10 +415,10 @@ h2{
 
 
 
-.btnCuid{
+button.btnCuid {
   margin-left: 6vw;
   margin-top: 10vh;
-  width: 24vw;
+  width: 26vw;
   height: 7vh;
   font-size: 1.7rem;
   font-family: 'Roboto', 'Courier New', Courier, monospace;

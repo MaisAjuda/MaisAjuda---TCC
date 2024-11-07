@@ -19,6 +19,8 @@ module.exports = {
                 return res.status(404).send('cuidador não encontrado');
             }
 
+
+
             const senhaCorreta = await bycrypt.compare(cui_senha, cuidador.cui_senha);
 
             if (!senhaCorreta) {
@@ -38,6 +40,7 @@ module.exports = {
                 error: "Erro",
                 msg: error
             });
+            console.log(error);
         }
     },
     async getCuidador(req,res){
@@ -54,53 +57,64 @@ module.exports = {
             });
         }
     }, 
-    async criarCuidador(req,res){
+    async criarCuidador(req, res) {
         try {
-            
-            const { cui_cpf, cui_nome, cui_email, cui_cep, cui_senha, cui_tel, esp_id, cui_descri, cui_sexo, cui_data_nasc} = req.body;
-            
-            if (!cui_cpf && !cui_nome && !cui_email && !cui_cep && !cui_senha && !cui_tel && !esp_id && !cui_descri && !cui_sexo && !cui_data_nasc) {
+            const {
+                cui_cpf, cui_nome, cui_email, cui_cep, cui_senha, cui_tel, 
+                esp_id, cui_descri, cui_sexo, cui_data_nasc
+            } = req.body;
+    
+            if (!cui_cpf || !cui_nome || !cui_email || !cui_cep || 
+                !cui_senha || !cui_tel || !esp_id || !cui_descri || 
+                !cui_sexo || !cui_data_nasc) {
                 return res.status(400).send('Todos os campos devem ser preenchidos');
             }
-
-            if(!validaCPF(cui_cpf)){
-                return res.status(400).send("CPF inválido")
+            if (!validaCPF(cui_cpf)) {
+                return res.status(400).send("CPF inválido");
             }
-
+    
             try {
                 const response = await fetch(`https://viacep.com.br/ws/${cui_cep}/json/`);
                 const data = await response.json();
                 if (data.erro) {
-                    return { valido: false, mensagem: 'CEP não encontrado' };
+                    return res.status(400).send('CEP não encontrado');
                 }
             } catch (error) {
-                return { valido: false, mensagem: 'Erro ao consultar CEP' };
+                return res.status(500).send('Erro ao consultar o CEP');
             }
-
-            const cui_senha_encrypt = await bycrypt.hash(cui_senha, 10)
-
+    
+            const verificarEmail = await knex('cuidador').where({ cui_email }).first();
+            const verificarCPF = await knex('cuidador').where({ cui_cpf }).first();
+    
+            if (verificarEmail || verificarCPF) {
+                return res.status(400).send('CPF ou Email já existente');
+            }
+    
+            const cui_senha_encrypt = await bycrypt.hash(cui_senha, 10);
+    
             await knex('cuidador').insert({
-                cui_cpf : cui_cpf,
-                esp_id : esp_id,
-                cui_nome : cui_nome,
-                cui_email : cui_email,
-                cui_descri : cui_descri, 
-                cui_senha : cui_senha_encrypt, 
-                cui_sexo : cui_sexo, 
-                cui_data_nasc : cui_data_nasc, 
-                cui_tel : cui_tel,
-                cui_cep : cui_cep
-            })
-
-            return res.status(201).send('Cuidador criado!')
-
+                cui_cpf: cui_cpf,
+                esp_id: esp_id,
+                cui_nome: cui_nome,
+                cui_email: cui_email,
+                cui_descri: cui_descri,
+                cui_senha: cui_senha_encrypt,
+                cui_sexo: cui_sexo,
+                cui_data_nasc: cui_data_nasc,
+                cui_tel: cui_tel,
+                cui_cep: cui_cep
+            });
+    
+            return res.status(201).send('Cuidador criado com sucesso!');
+    
         } catch (error) {
+            console.error("Erro ao criar cuidador:", error);
             return res.status(500).json({
-                error: "Erro",
-                msg: error
+                error: "Erro ao criar cuidador",
+                msg: error.message
             });
         }
-    },
+    },    
     async alterarCuidador(req,res){
         try {
             

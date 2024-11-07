@@ -8,6 +8,7 @@ const ControllerCuidador = require('./Controllers/ControllerCuidador')
 const ControllerNotificacao = require('./Controllers/ControllerNotificacao')
 
 Router.post('/cliente', ControllerCliente.criarCliente)
+Router.post('/cliente/login', ControllerCliente.loginCliente)
 Router.put('/cliente', ControllerCliente.alterarCliente)
 Router.delete('/cliente', ControllerCliente.deleteCliente)
 Router.get('/cliente', ConstrollerCliente.getcliente)

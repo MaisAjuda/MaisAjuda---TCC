@@ -1,0 +1,104 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #e5e5e5;
+    color: #333;
+  }
+  
+  .app-container {
+    display: flex;
+    padding: 20px;
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 25%;
+    padding: 20px;
+    background-color: #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .sidebar h2 {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+  }
+  
+  .care-type-button {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #197070;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+  }
+  
+  .care-type-button:hover {
+    background-color: #145656;
+  }
+  
+  /* Main content styling */
+  .main-content {
+    width: 75%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .location-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .location-selector button {
+    background-color: #ffffff;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+  }
+  
+  .location-selector span {
+    font-size: 1.5em;
+    margin-left: 10px;
+  }
+  
+  /* Care Provider Card styling */
+  .care-provider-card {
+    display: flex;
+    align-items: center;
+    background-color: #197070;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .provider-icon {
+    font-size: 2em;
+    margin-right: 15px;
+  }
+  
+  .care-provider-card h3 {
+    margin-bottom: 5px;
+  }
+  
+  .care-provider-card p {
+    margin: 0;
+  }
+  

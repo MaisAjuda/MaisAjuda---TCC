@@ -1,4 +1,4 @@
-const knex = require("../database");
+const db  = require("../database");
 
 module.exports = {
     async criarAssistencia(req,res){
@@ -28,13 +28,13 @@ module.exports = {
                 return res.status(400).send("Preencha todos os campos")
             }
             
-                        let notify = await knex('notificacao').where({ not_id  })
+                        let notify = await db ('notificacao').where({ not_id  })
                         if(!notify || notify.length == 0){
                             return res.status(400).send("Notificação não encontrada")
                         }
             
 
-            await knex('assistencia').insert({
+            await db ('assistencia').insert({
                 ass_data_fim: ass_data_fim,
                 not_id: not_id
             })
@@ -50,7 +50,7 @@ module.exports = {
     async getAssistencia(req,res){
         try {
         
-            const listaAssistencia = await knex('assistencia')
+            const listaAssistencia = await db ('assistencia')
 
             res.status(200).send(listaAssistencia)
             
@@ -73,7 +73,7 @@ module.exports = {
             }
     
             
-            let dataInicioResult = await knex('assistencia')
+            let dataInicioResult = await db ('assistencia')
                 .select("ass_data_inicio")
                 .where({ ass_id });
     
@@ -105,7 +105,7 @@ module.exports = {
             }
     
             
-            await knex('assistencia')
+            await db ('assistencia')
                 .where({ ass_id: ass_id })
                 .update({
                     ass_data_fim: ass_data_fim,
@@ -131,7 +131,7 @@ module.exports = {
                 return res.status(400).send("ID da assistência não informado.");
             }
 
-            await knex('assistencia').where({ass_id}).delete()
+            await db ('assistencia').where({ass_id}).delete()
 
             res.status(200).send('Assistencia deletada com sucesso!');
 

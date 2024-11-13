@@ -6,12 +6,10 @@
   .p-header{
     font-size: 1.4rem;
     transition: all 3ms ease-in-out;
+    color: white;
   }
   .menu-hamburguer{
     display: none;
-  }
-  .home{
-    
   }
   .p-home{
     margin-left: 0;

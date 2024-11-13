@@ -1,4 +1,4 @@
-const knex = require("../database");
+const db = require("../database");
 
 module.exports = {
     async criarCuidado(req, res) {
@@ -9,7 +9,7 @@ module.exports = {
                 return res.status(400).send('Todos os campos devem ser preenchidos');
             }
 
-            await knex('cuidado').insert({
+            await db('cuidado').insert({
                 cui_cpf,
                 cli_cpf,
                 cnd_descri,
@@ -27,7 +27,7 @@ module.exports = {
     },
     async getCuidados(req,res){
         try {
-            const listaCuidados = await knex('cuidado')
+            const listaCuidados = await db('cuidado')
 
             res.status(201).send(listaCuidados);
         } catch (error) {
@@ -42,7 +42,7 @@ module.exports = {
                 return res.status(400).send('O id do cuidado é obrigatório');
             }
 
-            const result = await knex('cuidado')
+            const result = await db('cuidado')
                 .where({ cnd_id })  
                 .update({
                     cui_cpf,
@@ -71,7 +71,7 @@ module.exports = {
                 res.send("O id do cuidado é necessário para completar a ação")
             }
 
-            await knex('cuidado').delete()
+            await db('cuidado').delete()
 
             res.status(200).send('cuidado deletado com sucesso')
         } catch (error) {

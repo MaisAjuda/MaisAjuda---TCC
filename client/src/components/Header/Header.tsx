@@ -40,7 +40,7 @@ export function Header(){
                 <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} className='p-header' onClick={()=> nav('/sobreNos')} >Sobre Nós</p>
                 <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} className='p-header' onClick={()=> nav('/contato')}>Contato</p>
                 <p>|</p>
-                <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} className='p-header' onClick={() => nav('/login')}><IoPersonOutline /> Entrar</p>
+                <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} className='p-header' onClick={() => nav('/login-selecao')}><IoPersonOutline /> Entrar</p>
             </nav>
             <RxHamburgerMenu className='menu-hamburguer'/>
         </header>

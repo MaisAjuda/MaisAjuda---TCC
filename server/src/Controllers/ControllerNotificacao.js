@@ -1,5 +1,5 @@
-const { ClientBase } = require('pg');
-const knex = require('../database');
+
+const db = require('../database');
 
 module.exports = {
     async createNotify(req, res){
@@ -16,10 +16,10 @@ module.exports = {
                 return res.status(400).send("Os campos estão inválidos, verifique se a tipagem dos dados está correta");
             }
         
-            let cpf_cuidador = await knex('cuidador').where({ cui_cpf });
-            let cpf_cliente = await knex('cliente').where({ cli_cpf });
-            let id_cuidado = await knex('cuidado').where({ cnd_id });
-            let cli_cpf_cnd = await knex('cuidado').where({ cnd_id }).select('cli_cpf');
+            let cpf_cuidador = await db('cuidador').where({ cui_cpf });
+            let cpf_cliente = await db('cliente').where({ cli_cpf });
+            let id_cuidado = await db('cuidado').where({ cnd_id });
+            let cli_cpf_cnd = await db('cuidado').where({ cnd_id }).select('cli_cpf');
 
         
             if(cli_cpf_cnd[0].cli_cpf != cli_cpf){
@@ -38,7 +38,7 @@ module.exports = {
                 return res.status(400).send("Id do cuidado não encontrado");
             }
         
-            const notify = await knex('notificacao')
+            const notify = await db('notificacao')
                 .insert({
                     cui_cpf, 
                     cli_cpf, 
@@ -59,7 +59,7 @@ module.exports = {
     async getNotify(req, res){
         try {
 
-            const notify = await knex('notificacao')
+            const notify = await db('notificacao')
 
             return res.status(200).send(notify)
         } catch(error) {
@@ -83,27 +83,27 @@ module.exports = {
             }
     
             if (cui_cpf) {
-                const verifyCPF = await knex('cuidador').where({ cui_cpf });  // Nome da tabela corrigido
+                const verifyCPF = await db('cuidador').where({ cui_cpf });  // Nome da tabela corrigido
                 if (verifyCPF.length == 0) {
                     return res.status(400).json({ error: "O cuidador com o CPF informado não existe" });
                 }
             }
     
             if (cli_cpf) {
-                const verifyCPF = await knex('cliente').where({ cli_cpf });
+                const verifyCPF = await db('cliente').where({ cli_cpf });
                 if (verifyCPF.length == 0) {
                     return res.status(400).json({ error: "O cliente com o CPF informado não existe" });
                 }
             }
     
             if (cnd_id) {
-                const cli_cpf_cnd = await knex('cuidado').where({ cnd_id }).select('cli_cpf');
+                const cli_cpf_cnd = await db('cuidado').where({ cnd_id }).select('cli_cpf');
                 if (cli_cpf_cnd.length > 0 && cli_cpf_cnd[0].cli_cpf != cli_cpf) {
                     return res.status(400).send("O CPF do cliente informado não corresponde ao CPF registrado no cuidado");
                 }
             }
     
-            const alterNotify = await knex('notificacao').where({ not_id }).update({
+            const alterNotify = await db('notificacao').where({ not_id }).update({
                 cui_cpf: cui_cpf,
                 cli_cpf: cli_cpf,
                 cnd_id: cnd_id,
@@ -123,7 +123,7 @@ module.exports = {
         try {
             const {not_id} = req.body
 
-            const deleteNot = await knex('notificacao').where({not_id}).delete()
+            const deleteNot = await db('notificacao').where({not_id}).delete()
 
             return res.status(200).send("Notificação deletada com sucesso")
         } catch (error) {

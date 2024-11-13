@@ -1,4 +1,4 @@
-const knex = require("../database"); 
+const db = require("../database"); 
 const bycrypt = require('bcrypt');
 const { validaCPF } = require('../modules/verificarCPF')
 
@@ -11,7 +11,7 @@ module.exports = {
                 return res.status(400).send('Email e senha são obrigatórios');
             }
 
-            const cuidador = await knex('cuidador')
+            const cuidador = await db('cuidador')
                 .where({ cui_email })
                 .first();
 
@@ -43,20 +43,26 @@ module.exports = {
             console.log(error);
         }
     },
-    async getCuidador(req,res){
+    async getCuidador(req, res) {
         try {
+            const listCuids = await db('cuidador').select('*');
             
-            const listCuids = await knex('cuidador')
+            if (!listCuids || listCuids.length === 0) {
+                return res.status(404).json({
+                    message: "Nenhum cuidador encontrado"
+                });
+            }
 
-            res.status(200).send(listCuids)
+            return res.status(200).json(listCuids);
 
         } catch (error) {
+            console.error('Erro ao buscar cuidadores:', error);
             return res.status(500).json({
-                error: "Erro",
-                msg: error
+                error: "Erro interno do servidor",
+                message: error.message
             });
         }
-    }, 
+    },
     async criarCuidador(req, res) {
         try {
             const {
@@ -83,8 +89,8 @@ module.exports = {
                 return res.status(500).send('Erro ao consultar o CEP');
             }
     
-            const verificarEmail = await knex('cuidador').where({ cui_email }).first();
-            const verificarCPF = await knex('cuidador').where({ cui_cpf }).first();
+            const verificarEmail = await db('cuidador').where({ cui_email }).first();
+            const verificarCPF = await db('cuidador').where({ cui_cpf }).first();
     
             if (verificarEmail || verificarCPF) {
                 return res.status(400).send('CPF ou Email já existente');
@@ -92,7 +98,7 @@ module.exports = {
     
             const cui_senha_encrypt = await bycrypt.hash(cui_senha, 10);
     
-            await knex('cuidador').insert({
+            await db('cuidador').insert({
                 cui_cpf: cui_cpf,
                 esp_id: esp_id,
                 cui_nome: cui_nome,
@@ -130,7 +136,7 @@ module.exports = {
             }
             
             
-            const resultado = await knex('cuidador')
+            const resultado = await db('cuidador')
             .where({ cui_cpf })
             .update({
                 cui_nome: cui_nome,
@@ -156,7 +162,7 @@ module.exports = {
         try {
             const {cui_cpf} = req.body
 
-            await knex('cuidador').where({cui_cpf}).delete()
+            await db('cuidador').where({cui_cpf}).delete()
 
             return res.status(201).send('Cuidador deletado com sucesso!')
         } catch (error) {

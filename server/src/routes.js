@@ -1,17 +1,22 @@
 const Router = require('express').Router()
-const { Route } = require('react-router-dom')
+const express = require('express')
 const ControllerAssistencia = require('./Controllers/ControllerAssistência')
 const ControllerCliente = require('./Controllers/ControllerCliente')
-const ConstrollerCliente = require('./Controllers/ControllerCliente')
 const ControllerCuidado = require('./Controllers/ControllerCuidado')
 const ControllerCuidador = require('./Controllers/ControllerCuidador')
 const ControllerNotificacao = require('./Controllers/ControllerNotificacao')
+const upload = require('../multerConfig');
+const testeUpload = require('./Controllers/testeUpload')
 
-Router.post('/cliente', ControllerCliente.criarCliente)
+Router.use(express.json()); 
+Router.use(express.urlencoded({ extended: true })); 
+
+Router.post('/cliente', upload.single('file'), ControllerCliente.criarCliente)
 Router.post('/cliente/login', ControllerCliente.loginCliente)
 Router.put('/cliente', ControllerCliente.alterarCliente)
 Router.delete('/cliente', ControllerCliente.deleteCliente)
-Router.get('/cliente', ConstrollerCliente.getcliente)
+Router.get('/cliente', ControllerCliente.getcliente)
+
 
 Router.get('/cuidador', ControllerCuidador.getCuidador)
 Router.post('/cuidador/login', ControllerCuidador.loginCuidador)

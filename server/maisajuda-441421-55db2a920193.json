@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "maisajuda-441421",
+  "private_key_id": "55db2a9201930fc345a031bd468fd678a02adc6e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDDDHK6sqPIDCPo\nBaazgboFt36vC3RCWZuJI3J6k0Dc3cx/Ri4rEiOkE754uibKGuzshr9qYjjS8aKF\n4G8VSu3ofHazCsS5kLUZbUwSuDO96r8t+eVRnPENYV5JYPq46LC7q8TjnytZAWlh\ntJXHkAZ86cCoh4LjaxT3d2znYz+HSaMqTcZIm6s2kKEdRYHXJvxRRq70AxJPBkfE\nR0aHdbdpVUtYgdEYTteQCyXFxkCaFhlqobEv5pZediN8nDd0sN3FvkS2RRgXu5hX\nKx7aOIIk3CHl3f+gZLNx7uF9jexhqesu/SqQfnFvRQ5e6hD49jwIkRwW82T8fMHF\nMkQVzwRVAgMBAAECggEAFvbMOzb1GYR0Zcjki5XmdO3ZuHo8weMS8N5/h/b2WAq1\nHPcCUIfeMl8wub4Q+xKYenCS8M+HqS5R2DlIWtVrlUeyIfpOlxp2d/vqTPnq/Z05\nzQvy99zmdJDWLQWB/2tGA5KBp9sBm4UTBzHfwJMwcFyFFlJ+EpB0833YEJYa0K6h\n2drJW7m2LeZs4qVLp5wbes6HHFYdSjiCPeLLQOLyJ84nucI0klpgtixhe58SYAFp\n8oaU+Mi91fxMy8XD8JXiIz0O25NP6fgAIO3OpKyUsPIWKqosHFO1v2/d50vSxf7u\nhLPhyN9FduvWNnNtTP7+iE219LOKLpNjLS2QV8UAgQKBgQD5tvYsox/P4feu6sE5\n9RgMKFsg0yOeFLw/WAA46WqoumGMYWYZhuWkEdAENEc7ntDOtxgHazjE4iAXaRES\ntL5gKv1XZkvgFZoiAt0PX3m3bgwHWlYqjHAkuHZn4llOpKFsnN/MGq0QOCPPd8hD\noHV6jgl/RqrB9hx+g2BUEtTgOQKBgQDH9T7PLa0pgqDQ++ZpKdzvqj87fKscoIzF\ndQCLtCIMVgZ5S3LUvvc7s/Fa5ke+ztHEqjr7aB9VC3XwNF710yE/U2G0F8PAyocM\nqQsOM+c5NkGZ7EQOuXPCPqi8yTL0eKFcV+hVrR+aE2MqY7GJYi5blGZ+E8i9fzlR\n+CQJDMDM/QKBgQDJ32xSF6mfECmAoc2FwisnoPRSq/4OTOsGNmkvmRudvdcgepjk\nqBY7th65V14Cx9g8VO47CSZCnB+fbVPdEHsbGYXnQw6x4CTTvAbj56ZpcLCOvSwN\nh60dMnaecvEJz7OkL4oI4cPo6cmhbk9axHxUkEEDQKjI1uKgMCsOrI6lmQKBgB0d\nAgYcOmge0tdatdN9+uMSQJ6iqi9C2Pwu6uNsWMC/DbY/W/rJyylwK6X2fV+0sSoX\nNvs/z8AMKSHOHj1gfijANSuJgkDhvAQF4MwylmnoEmkc01PpgIc5pEvIZ5jcr3HI\ngtVmnYFLbVbQqRq9ps5CryGQM9wTV/8tR+Hhb3jpAoGAYJF839o1BoVrkZ4+8FA2\nfDNIWI9wvgJ6Q6hb2KCAL3ux2xnm+IbVicqfUZevRe7Ah6mX98FepApKF3ugdsWp\nB3egOzVhjYcZWFqvmUCqTOJPM56VgKnu5wv6UX+LPpS8kQQOZcDZMMd20hFflCKO\n0CmYnvtgWNjEbrVCsfX112M=\n-----END PRIVATE KEY-----\n",
+  "client_email": "maisajuda@maisajuda-441421.iam.gserviceaccount.com",
+  "client_id": "113666547120491028399",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/maisajuda%40maisajuda-441421.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

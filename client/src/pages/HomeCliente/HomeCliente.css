@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://www.flaticon.com/br/icone-gratis/costas_126492?related_id=126492&origin=pack');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 * {
     margin: 0;
@@ -18,17 +22,42 @@
   
   /* Sidebar styling */
   .sidebar {
-    width: 25%;
-    padding: 20px;
+    width: 30%;
+    padding-left: 20px;
+    padding-bottom: 20px;
     background-color: #d3d3d3;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
+  #img-idosa-com-cuidadora{
+    margin-top: 10px;
+    width: 20vw;
+    margin-left: 0;
+    height: 25vh;
+  }
+
+  #inp-cep-home-cliente{
+    width:100%;
+    border: none;
+  }
   
   .sidebar h2 {
     margin-bottom: 20px;
     font-size: 1.2em;
+  }
+
+  #h2-cuidado{
+    font-family: 'Poppins';
+    color: #3C3C3C;
+    
+    font-family: 'Poppins';
+    font-weight: 700;
+    margin-left: 0;
+    font-size: 1.7rem;
+    line-height: 60px;
+    align-items: center;
+    text-align: center;
   }
   
   .care-type-button {
@@ -41,6 +70,8 @@
     cursor: pointer;
     font-size: 1em;
     display: flex;
+    width: 25vw;
+    height: 5vh;
     align-items: center;
   }
   
@@ -48,7 +79,6 @@
     background-color: #145656;
   }
   
-  /* Main content styling */
   .main-content {
     width: 75%;
     padding: 20px;

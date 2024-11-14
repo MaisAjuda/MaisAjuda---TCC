@@ -1,73 +1,97 @@
 import './LoginCliente.css';
 import Senhor from '../../assets/senhor.png';
 import MaisAjuda from '../../assets/AJUDA-black.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserType, setEmail, setSenha } from '../../Slice/UserSlice/UserSlice';
+import { RootState } from '../../redux/store';
 
+export function LoginCliente() {
+  const dispatch = useDispatch();
+  const { tipo, email, senha } = useSelector((state: RootState) => state.user);
+  const [userEmail, setUserEmail] = useState('');
+  const [userSenha, setUserSenha] = useState('');
+  const nav = useNavigate();
 
- export function LoginCliente() {
+  function handleEmail(e: React.ChangeEvent<HTMLInputElement>) {
+    setUserEmail(e.target.value);
+  }
 
-    let notyf = new Notyf({
-        duration: 0,
-        dismissible: true
-    })
+  function handleSenha(e: React.ChangeEvent<HTMLInputElement>) {
+    setUserSenha(e.target.value);
+  }
 
-    const [email, setEmail] = useState('')
-    const nav = useNavigate()
-    const [senha, setSenha] = useState('')
+  async function Logar() {
+    try {
+      // Dispatching actions to store the user info in Redux
+      dispatch(setUserType('cliente'));
+      dispatch(setEmail(userEmail));
+      dispatch(setSenha(userSenha));
 
-    function handleEmail(e:any){
-        setEmail(e.target.value)
+      // Making an API call to login
+      const response = await axios.post('http://localhost:3344/cliente/login', {
+        cli_email: userEmail,
+        cli_senha: userSenha,
+      });
+
+      // Handle success
+      const notyf = new Notyf({
+        duration: 3000,
+        dismissible: true,
+      });
+      notyf.success(response.data.mensagem);
+
+      // Navigate to the home page
+      nav('/home-cliente');
+    } catch (error: any) {
+      // Handle errors
+      const notyf = new Notyf({
+        duration: 3000,
+        dismissible: true,
+      });
+      notyf.error(error.response?.data ?? 'Erro de autenticação');
     }
-    function handleSenha(e:any){
-        setSenha(e.target.value)
-    }
+  }
 
-    async function Logar() {
-        try {
+  useEffect(() => {
+    // Log the user info whenever it changes
+    console.log({
+      tipo,
+      email,
+      senha,
+    });
+  }, [tipo, email, senha]);
 
-            
-            try {
-                const response = await axios.post('http://localhost:3344/cliente/login',{
-                    "cli_email": email,
-                    "cli_senha": senha
-                })
-                await notyf.success(response.data.mensagem)
-                nav('/home-cliente')
-            } catch (error) {
-                notyf.error(error.response.data)
-            }
-
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
-    
-
-    return(
-        <>
-            <div className='conteiner-are'>
-                 <div className='divAre'>
-                            <h2 className='H2S'>Mais <br /> Ajuda</h2>
-                            <img src={Senhor} alt="senhor" className='senhor' />
-
-                            <h1 className='H1S'>Seja Bem vindo (a) </h1>
-                    </div>
-                    <div className='divAre2'>
-                        <h1 className='H112'>Login</h1>
-                        <label htmlFor="email"></label>
-                        <input onChange={handleEmail} name='email' type="email" placeholder='Email...' className='inp'/>
-                        <label htmlFor="senha"></label>
-                        <input onChange={handleSenha} type="password" name='senha' placeholder='Senha...' className='inp'/><br />
-                        <button onClick={Logar} className='entrar'>Entrar</button><br /><br />
-                        <img src={MaisAjuda} alt="maisAjuda" className='Mais' />
-                    </div>
-            </div>
-        </>
-    )
-    
+  return (
+    <div className="conteiner-are">
+      <div className="divAre">
+        <h2 className="H2S">Mais <br /> Ajuda</h2>
+        <img src={Senhor} alt="senhor" className="senhor" />
+        <h1 className="H1S">Seja Bem-vindo(a)</h1>
+      </div>
+      <div className="divAre2">
+        <h1 className="H112">Login</h1>
+        <input
+          onChange={handleEmail}
+          name="email"
+          type="email"
+          placeholder="Email..."
+          className="inp"
+        />
+        <input
+          onChange={handleSenha}
+          type="password"
+          name="senha"
+          placeholder="Senha..."
+          className="inp"
+        />
+        <button onClick={Logar} className="entrar">Entrar</button>
+        <img src={MaisAjuda} alt="maisAjuda" className="Mais" />
+      </div>
+    </div>
+  );
 }

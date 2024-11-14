@@ -1,11 +1,16 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { clienteSlice } from "../features/Cliente/ClienteSlice";
-import { cuidadorSlice } from "../features/Cuidador/CuidadorSlice";
 
-export const store = configureStore({
-    reducer: {
-        cliente: clienteSlice.reducer,
-        cuidador: cuidadorSlice.reducer
-    }
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from '../Slice/UserSlice/UserSlice';
+import espReducer from '../Slice/espSlice/espSlice';
 
-})
+const store = configureStore({
+  reducer: {
+    user: userReducer,
+    esp: espReducer,
+  },
+});
+
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+
+export default store;

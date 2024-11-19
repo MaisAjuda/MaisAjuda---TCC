@@ -67,7 +67,7 @@ module.exports = {
         try {
             const {
                 cui_cpf, cui_nome, cui_email, cui_cep, cui_senha, cui_tel, 
-                esp_id, cui_descri, cui_sexo, cui_data_nasc
+                esp_id, cui_descri, cui_sexo, cui_data_nasc,cui_foto_id
             } = req.body;
     
             if (!cui_cpf || !cui_nome || !cui_email || !cui_cep || 
@@ -108,7 +108,8 @@ module.exports = {
                 cui_sexo: cui_sexo,
                 cui_data_nasc: cui_data_nasc,
                 cui_tel: cui_tel,
-                cui_cep: cui_cep
+                cui_cep: cui_cep,
+                cui_foto_id:cui_foto_id
             });
     
             return res.status(201).send('Cuidador criado com sucesso!');

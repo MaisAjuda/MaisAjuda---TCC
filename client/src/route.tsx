@@ -7,6 +7,7 @@ import { SobreNos } from "./pages/SobreNos/SobreNos";
 import { Contato } from "./pages/Contato/Contato";
 import LoginSelection from "./pages/LoginSelection/LoginSelection";
 import { HomeCliente } from "./pages/HomeCliente/HomeCliente";
+import { PerfilCliente } from "./pages/PerfilCliente/PerfilCliente";
 
 export function RouteApp(){
     return(
@@ -17,6 +18,7 @@ export function RouteApp(){
                 <Route path="/login-cliente" element={<LoginCliente/>} />
                 <Route path="/login-cuidador" element={<LoginCuidador/>} />
                 <Route path="/home-cliente" element={<HomeCliente/>} />
+                <Route path="/perfil-cliente" element={<PerfilCliente/>} />
                 <Route path="/cadCuidador" element={<CadCuidador/>} />
                 <Route path="/sobreNos" element={<SobreNos />} />
                 <Route path="/" element={<Menu />} />

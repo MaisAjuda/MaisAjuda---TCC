@@ -8,10 +8,13 @@ import './App.css';
 import { useNavigate } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import InputMask from 'react-input-mask';
+import { useDispatch, useSelector } from 'react-redux';
+import { setEspCode } from './Slice/espSlice/espSlice';
 function Menu() {
   const nav = useNavigate();
   const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
   const [selectCuid, setSelectCuid] = useState<string>("");
+  const dispatch = useDispatch();
 
 
   function handleCuidChange(option: string) {
@@ -51,6 +54,11 @@ function Menu() {
     }
   }
 
+  function setEspId(id: number){
+    console.log(id)
+    dispatch(setEspCode(id));
+  }
+
   return (
     <>
       
@@ -77,15 +85,30 @@ function Menu() {
                   <IoMdArrowDropdown className='seta'/>
                 </div>
                 <div id='dropdown-list' className={`dropdown-list ${dropdownOpen ? 'show' : 'hide'}`}>
-                  <div onClick={() => handleCuidChange('PCD')} className="dropdown-list__item"><span className="textoSelect"><span className="textoSelect">PCD</span></span></div>
+                  <div onClick={() => {
+                    handleCuidChange('PCD')
+                    setEspId(1)
+                  }} className="dropdown-list__item"><span className="textoSelect"><span className="textoSelect">PCD</span></span></div>
                   <hr />
-                  <div onClick={() => handleCuidChange('Pós Operatório')} className="dropdown-list__item"><span className="textoSelect">Pós Operatório</span></div>
+                  <div onClick={() => {
+                    handleCuidChange('Pós Operatório')
+                    setEspId(2)
+                  }} className="dropdown-list__item"><span className="textoSelect">Pós Operatório</span></div>
                   <hr />
-                  <div onClick={() => handleCuidChange('Idoso')} className="dropdown-list__item"><span className="textoSelect">Idoso</span></div>
+                  <div onClick={() => {
+                    handleCuidChange('Idoso')
+                    setEspId(3)
+                  }} className="dropdown-list__item"><span className="textoSelect">Idoso</span></div>
                   <hr />
-                  <div onClick={() => handleCuidChange('Recém nascido')} className="dropdown-list__item"><span className="textoSelect">Recém nascido</span></div>
+                  <div onClick={() => {
+                    handleCuidChange('Recém nascido')
+                    setEspId(4)
+                  }} className="dropdown-list__item"><span className="textoSelect">Recém nascido</span></div>
                   <hr />
-                  <div onClick={() => handleCuidChange('Outros')} className="dropdown-list__item"><span className="textoSelect">Outros</span></div>
+                  <div onClick={() => {
+                    handleCuidChange('Todos')
+                    setEspId(0)
+                  }} className="dropdown-list__item"><span className="textoSelect">Todos</span></div>
                 </div>
               </div>
 
@@ -104,7 +127,9 @@ function Menu() {
               </div>
             </div>
             <p className='pp'>Para quem precisa de acompanhamento domiciliar para si ou para seus familiares.</p>
-            <button id='buscar'>Buscar</button>
+            <button onClick={() => {
+              nav('/home-cliente')
+            }} id='buscar'>Buscar</button>
           </div>
         </section>
 

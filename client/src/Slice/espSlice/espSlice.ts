@@ -12,7 +12,7 @@ const espSlice = createSlice({
       setEspCode: (state, action: PayloadAction<EspType['esp_code']>) => {
         state.esp_code = action.payload;
       },
-      clearEspCode: (state, action: PayloadAction<EspType['esp_code']>) => {
+      clearEspCode: (state) => {
         state.esp_code = 0
       }
     },

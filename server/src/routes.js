@@ -12,6 +12,9 @@ Router.use(express.json());
 Router.use(express.urlencoded({ extended: true })); 
 
 Router.post('/cliente', upload.single('file'), ControllerCliente.criarCliente)
+Router.post('/cliente-foto', upload.single('file'), ControllerCliente.uploadFile)
+Router.get('/cliente/get-photo/:fileId', ControllerCliente.getPhoto)
+Router.get('/cliente/get-user/:cli_email', ControllerCliente.getPerfil)
 Router.post('/cliente/login', ControllerCliente.loginCliente)
 Router.put('/cliente', ControllerCliente.alterarCliente)
 Router.delete('/cliente', ControllerCliente.deleteCliente)

@@ -107,10 +107,20 @@
     font-size: 1.5em;
     margin-left: 10px;
   }
+
+  #user-img{
+    width: 5vw;
+    margin-right: 10%;
+  }
   
+  #descri{
+    width: 30vw;
+  }
+
   /* Care Provider Card styling */
   .care-provider-card {
     display: flex;
+    justify-content: flex-start;
     align-items: center;
     background-color: #197070;
     color: white;

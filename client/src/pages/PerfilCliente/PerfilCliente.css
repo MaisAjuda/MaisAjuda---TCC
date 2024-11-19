@@ -1,0 +1,102 @@
+body {
+    background-color: #dcdcdc;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que ocupe toda a altura da tela */
+  }
+  
+  .container-fluid {
+    flex: 1; /* Permite que o conteúdo ocupe o espaço restante entre o Header e o Footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-card {
+    background-color: #004c4c;
+    color: white;
+    border-radius: 1.5rem;
+    padding: 5%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Responsivo */
+    max-width: 600px; /* Limita o tamanho em telas maiores */
+    margin: 2rem auto; /* Espaçamento superior e inferior */
+  }
+  
+  .profile-image img {
+    width: 40%; /* Escala proporcional */
+    height: auto; /* Mantém proporções */
+    border-radius: 50%; /* Torna a imagem redonda */
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-name {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  
+  .profile-description {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin: 1rem 0;
+    text-align: justify;
+    color: #e0e0e0;
+  }
+  
+  .profile-detail {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #cfcfcf;
+  }
+  
+  .profile-detail span {
+    color: #ffffff;
+    font-weight: bold;
+  }
+  
+  .profile-actions {
+    margin-top: 2rem;
+  }
+  
+  .profile-actions button {
+    font-size: 1.1rem;
+    text-align: left;
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+  
+  .profile-actions button.text-light {
+    color: #ffffff;
+  }
+  
+  .profile-actions button.text-danger {
+    color: #ff4d4d;
+  }
+  
+  @media (max-width: 768px) {
+    .profile-card {
+      padding: 8%;
+    }
+  
+    .profile-name {
+      font-size: 1.5rem;
+    }
+  
+    .profile-description {
+      font-size: 1rem;
+    }
+  
+    .profile-detail {
+      font-size: 1rem;
+    }
+  
+    .profile-actions button {
+      font-size: 1rem;
+    }
+  }
+  

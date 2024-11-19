@@ -1,6 +1,7 @@
 import './HomeCliente.css';
 import { Header } from '../../components/Header/Header';
 import idosa_com_cuidadora from '../../assets/idosa-com-cuidadora.png';
+import default_user from '../../assets/default-user.png';
 import { Footer } from '../../components/Footer/Footer';
 import InputMask from 'react-input-mask';
 import axios from 'axios';
@@ -10,6 +11,7 @@ import { RootState } from '../../redux/store';
 import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import espSlice from '../../Slice/espSlice/espSlice';
+import { ModalCliente } from '../../components/ModalCliente/ModalCliente';
 
 // Tipagem para o botão de tipo de cuidado
 interface CareTypeButtonProps {
@@ -32,13 +34,14 @@ interface CareProviderCardProps {
 // Componente de card do provedor de cuidado
 const CareProviderCard: React.FC<CareProviderCardProps> = ({ name, description, source, avalation }) => {
   return (
-    <div className="care-provider-card">
-      <div className="provider-icon"><img src={source} alt="" /></div>
+    <div  className="care-provider-card">
+      <div className="provider-icon"><img id="user-img" src={source || default_user} alt="" /></div>
       <div>
         <h3>{name}</h3>
-        <p>{description}</p>
+        <p id='descri'>{description}</p>
         <p>{avalation}</p>
       </div>
+      <ModalCliente />
     </div>
   );
 };
@@ -51,12 +54,16 @@ export function HomeCliente() {
   const dispatch = useDispatch();
   const [responseData, setResponseData] = useState<any[]>([]); // Estado para armazenar os dados dos cuidadores
 
+
   useEffect(() => {
     // Função de verificação de estado de login
     async function verifyState() {
       if (!email || !senha || tipo === 'cuidador') {
         nav('/login-selecao');
       }
+      // try{
+      //   const response = await axios.get('http://localhost:3344/cliente/login')
+      // }
     }
 
     verifyState(); // Chama a função de verificação ao carregar o componente
@@ -114,7 +121,7 @@ export function HomeCliente() {
               // Verifique se os dados e as propriedades existem
               if (data && data.cui_status !== undefined) {
                 if (esp_code > 0) {
-                  if (data.cui_status === 1 && esp_code === data.esp_id) {
+                  if (data.cui_status != 0 && esp_code == data.esp_id) {
                     return (
                       <CareProviderCard
                         key={data.cui_cpf} // Adiciona uma chave única para o componente
@@ -128,15 +135,23 @@ export function HomeCliente() {
                 } else if (esp_code === 0) {
                   if (data.cui_status === 1) {
                     return (
-                      <CareProviderCard
+                      <div>
+                        <CareProviderCard
                         key={data.cui_cpf} // Adiciona uma chave única para o componente
                         source={data.img}
                         name={data.cui_nome}
                         description={data.cui_descri}
                         avalation={data.cui_aval}
-                      />
+                        />
+                      </div>
                     );
                   }
+                } else if(data.lenght == 0){
+                  return(
+                    <div>
+                      <h2>Não há cuidadores disponíveis</h2>
+                    </div>
+                  )
                 }
               }
               return null; // Retorna null caso nada seja renderizado

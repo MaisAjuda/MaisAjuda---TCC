@@ -2,6 +2,7 @@ import maisajuda from '../../assets/MAIS-removebg-preview.png';
 import face from '../../assets/face.png';
 import insta from '../../assets/insta.png';
 import youtube from '../../assets/youtube.png';
+import  './Footer.css'
 
 export function Footer(){
     return(

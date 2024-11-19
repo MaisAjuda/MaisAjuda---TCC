@@ -300,65 +300,7 @@ label{
   color: black;
 }
 
-footer{
-  background-color: #012340;
-  height: 100%;
-}
-.footer-conteiner > img{
-  width: 50%;
-  margin-left: -5vw;
-}
-.footer-conteiner{
-  display: flex;
-  width: 100%;  
-}
-article{
-  margin-left: 25%;
-}
-.para{
-  margin-left: -8%;
-  font-weight: bold;
-  font-size: 1.4rem;
-}
-.h22{
- margin-top: 10%;
- margin-left: -50%;
- color: #C7C7C7;
-}
-.h2{
-  margin-left: -106%;
-  color: #C7C7C7;
-  margin-top: -0.7%;
-}
-.face{
-  width: 8%;
-  height: 10%;
 
-}
-.insta{
-  width: 8%;
-  height: 10%;
-  margin-left: 3%;
-
-}
-.youtube{
-  width: 8%;
-  height: 10%;
-  margin-left: 3%;
- 
-}
-.imgRedes{
-  margin-top: -7%;
-  margin-left: 10%;
-}
-.article{
-  margin-left: 30%;
-  margin-top: 5%;
-}
-.copy{
-  text-align: center;
-  color: #C7C7C7;
-}
 .pp{
   margin-top: -12%;
   text-align: right;
@@ -469,7 +411,7 @@ button.btnCuid {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  margin-bottom: 10vh;
 }
 
 .nome_espec{

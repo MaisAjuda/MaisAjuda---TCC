@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Footer } from './components/Footer/Footer';
 import acompanhante from './assets/acompanhante-de-idosos.jpg';
 import manin from './assets/icons8-usuário-homem-com-círculo-48.png'
@@ -8,7 +8,7 @@ import './App.css';
 import { useNavigate } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import InputMask from 'react-input-mask';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setEspCode } from './Slice/espSlice/espSlice';
 function Menu() {
   const nav = useNavigate();

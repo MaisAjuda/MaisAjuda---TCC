@@ -12,20 +12,29 @@ const dispatch = useDispatch();
 const nav = useNavigate();
 
 export async function Login(userEmail:string,userSenha:string,tipo:string){
-    try {
-        const response = await axios.post('http://localhost:3344/cliente/login', {
-          cli_email: userEmail,
-          cli_senha: userSenha,
-        });
-    
-        notyf.success(response.data.mensagem);
-    
-        dispatch(setUserType('cliente'));
-        dispatch(setEmail(userEmail));
-        dispatch(setSenha(userSenha));
-    
-        nav('/home-cliente');
-      } catch (error: any) {
-        notyf.error(error.response?.data ?? 'Erro de autenticação');
+    if(tipo === 'cliente'){
+        try {
+          const response = await axios.post('http://localhost:3344/cliente/login', {
+            cli_email: userEmail,
+            cli_senha: userSenha,
+          });
+      
+          notyf.success(response.data.mensagem);
+      
+          dispatch(setUserType('cliente'));
+          dispatch(setEmail(userEmail));
+          dispatch(setSenha(userSenha));
+      
+          nav('/home-cliente');
+        } catch (error: any) {
+          notyf.error(error.response?.data ?? 'Erro de autenticação');
+      }
+    }if(tipo === 'cuidador'){
+      try {
+        return
+      } catch (error) {
+        return
+      }
     }
+    console.error("deu erro");
 }

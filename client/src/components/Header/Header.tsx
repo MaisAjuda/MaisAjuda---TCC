@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import './Header.css';
 import gsap from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
-import { RootState } from '@reduxjs/toolkit/query';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
@@ -14,7 +13,7 @@ import { Notyf } from 'notyf';
 gsap.registerPlugin(CSSPlugin);
 
 export function Header() {
-    const { email } = useSelector((state: RootState) => state.user);
+    const { email } = useSelector((state:any) => state.user);
     const [isUserValid, setIsUserValid] = useState(false);
     const notyf = new Notyf({
         duration: 3000,
@@ -39,7 +38,7 @@ export function Header() {
                         setIsUserValid(false); // Usuário não encontrado
                         notyf.error('Usuário não encontrado.');
                     }
-                } catch (e) {
+                } catch (e:any) {
                     console.error(e);
                     setIsUserValid(false); // Erro na requisição
                     notyf.error(e.response?.data?.message ?? 'Erro ao carregar o perfil.');

@@ -34,7 +34,7 @@ import axios from 'axios';
                     "cui_senha": senha
                 })
                 notyf.success(response.data.mensagem)
-            } catch (error) {
+            } catch (error:any) {
                 notyf.error(error.response.data)
             }
 

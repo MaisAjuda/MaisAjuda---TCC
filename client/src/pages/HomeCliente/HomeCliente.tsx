@@ -6,11 +6,10 @@ import { Footer } from '../../components/Footer/Footer';
 import InputMask from 'react-input-mask';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
-import espSlice from '../../Slice/espSlice/espSlice';
 import { ModalCliente } from '../../components/ModalCliente/ModalCliente';
 
 // Tipagem para o botão de tipo de cuidado
@@ -51,7 +50,6 @@ export function HomeCliente() {
   const { tipo, email, senha } = useSelector((state: RootState) => state.user);
   const { esp_code } = useSelector((state: RootState) => state.esp);
   const nav = useNavigate();
-  const dispatch = useDispatch();
   const [responseData, setResponseData] = useState<any[]>([]); // Estado para armazenar os dados dos cuidadores
 
 

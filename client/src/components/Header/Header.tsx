@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Notyf } from 'notyf';
+import { RootState } from '@reduxjs/toolkit/query';
 
 gsap.registerPlugin(CSSPlugin);
 
@@ -27,7 +28,7 @@ export function Header() {
             if (email) {
                 try {
                     // Monta a URL com o e-mail
-                    const response = await axios.get(`http://localhost:3344/cliente/get-user/${encodeURIComponent(email)}`);
+                    const response = await axios.get(`https://maisajuda-tcc-backend.onrender.com/cliente/get-user/${encodeURIComponent(email)}`);
         
                     console.log(response.data);
         
@@ -71,9 +72,19 @@ export function Header() {
 
     return (
         <header className="header">
-            <img src={logo} className="logo" alt="logo-mais-ajuda" />
+            <img src={logo} className="logo" onClick={()=>{
+                nav('/')
+            }} alt="logo-mais-ajuda" />
             <nav>
-                <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} id="p-home" className="p-header" onClick={() => nav('/')}>
+                <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} id="p-home" className="p-header" onClick={() => {
+                    const { tipo, email, senha } = useSelector((state: any) => state.user);
+                    
+                    if (!email || !senha || tipo === 'cuidador') {
+                        nav('/home-cliente');
+                    }else{
+                        nav('/')
+                    }
+                }}>
                     Home
                 </p>
                 <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} className="p-header" onClick={() => nav('/sobreNos')}>

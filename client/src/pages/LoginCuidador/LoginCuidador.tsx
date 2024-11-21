@@ -29,7 +29,7 @@ import axios from 'axios';
 
             
             try {
-                const response = await axios.post('http://localhost:3344/cuidador/login',{
+                const response = await axios.post('https://maisajuda-tcc-backend.onrender.com/cuidador/login',{
                     "cui_email": email,
                     "cui_senha": senha
                 })

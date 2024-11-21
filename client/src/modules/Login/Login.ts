@@ -14,7 +14,7 @@ const nav = useNavigate();
 export async function Login(userEmail:string,userSenha:string,tipo:string){
     if(tipo === 'cliente'){
         try {
-          const response = await axios.post('https://maisajuda-tcc-backend.onrender.com/cliente/login', {
+          const response = await axios.post('http://localhost:3344/cliente/login', {
             cli_email: userEmail,
             cli_senha: userSenha,
           });

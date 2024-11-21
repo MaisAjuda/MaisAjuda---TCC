@@ -47,17 +47,29 @@ const CareProviderCard: React.FC<CareProviderCardProps> = ({ name, description, 
 
 export function HomeCliente() {
   const [loading, setLoading] = useState(true);
+  const { tipo, email, senha } = useSelector((state: RootState) => state.user);
   const { esp_code } = useSelector((state: RootState) => state.esp);
   const nav = useNavigate();
   const [responseData, setResponseData] = useState<any[]>([]); // Estado para armazenar os dados dos cuidadores
 
 
   useEffect(() => {
+    // Função de verificação de estado de login
+    async function verifyState() {
+      if (!email || !senha || tipo === 'cuidador') {
+        nav('/login-selecao');
+      }
+      // try{
+      //   const response = await axios.get('http://localhost:3344/cliente/login')
+      // }
+    }
+
+    verifyState(); // Chama a função de verificação ao carregar o componente
 
     // Função para obter cuidadores
     async function getCuidadores() {
       try {
-        const response = await axios.get('https://maisajuda-tcc-backend.onrender.com/cuidador');
+        const response = await axios.get('http://localhost:3344/cuidador');
         setResponseData(response.data);
         setLoading(false);
       } catch (err) {
@@ -67,7 +79,9 @@ export function HomeCliente() {
     }
 
     getCuidadores(); // Chama a função para obter cuidadores quando o componente é montado
-  }, [ esp_code, nav]); // Dependências para garantir que o efeito só seja chamado quando os dados do usuário mudarem
+  }, [email, senha, tipo, esp_code, nav]); // Dependências para garantir que o efeito só seja chamado quando os dados do usuário mudarem
+
+  console.log({ tipo, email, senha });
 
   return (
     <>

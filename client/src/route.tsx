@@ -8,6 +8,8 @@ import { Contato } from "./pages/Contato/Contato";
 import LoginSelection from "./pages/LoginSelection/LoginSelection";
 import { HomeCliente } from "./pages/HomeCliente/HomeCliente";
 import { PerfilCliente } from "./pages/PerfilCliente/PerfilCliente";
+import { CadCliente } from "./pages/CadCliente/CadCliente";
+import { HomeCui } from "./pages/HomeCuidador/HomeCuidador";
 
 export function RouteApp(){
     return(
@@ -23,6 +25,8 @@ export function RouteApp(){
                 <Route path="/sobreNos" element={<SobreNos />} />
                 <Route path="/" element={<Menu />} />
                 <Route path="/contato" element={<Contato />} />
+                <Route path="/cadCli" element={<CadCliente />} />
+                <Route path="/home-cui" element={<HomeCui />} />
                 
             </Routes>
         </BrowserRouter>

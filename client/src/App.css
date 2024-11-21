@@ -253,7 +253,6 @@ h1{
   padding-left: 1%;
   padding-top:0.6%;
   background-color: #B9B9B9;
-  color: black;
 }
 .dropdown-select > span {
   font-family: 'Roboto', 'Courier New', Courier, monospace;
@@ -291,11 +290,10 @@ h1{
 
 .textoSelect{
   font-size: 1.3rem;
-  color: #1b1b1b;
 }
 
 .dropdown-list__item > span{
-  color: #1b1b1b;
+  color: #333;
 }
 
 label{
@@ -322,7 +320,7 @@ label{
 }
 
 #buscar{
-  margin-top: 13vh;
+  margin-top: 10vh;
   margin-left: 22vw;
   width: 15vw;
   cursor: pointer;
@@ -397,6 +395,7 @@ button.btnCuid {
 }
 .h11{
   color:#000000;
+  text-align: left;
 }
 .pp21{
   color: #000000;

@@ -63,6 +63,45 @@ module.exports = {
             });
         }
     },
+    async getPerfilCuidador(req,res){
+        try {
+            try {
+                const { cui_email } = req.params; // Verifica se está nos parâmetros da rota
+        
+                if (!cui_email) {
+                    return res.status(400).json({
+                        error: "Email não fornecido",
+                        message: "O campo 'cui_email' é obrigatório"
+                    });
+                }
+        
+                const cuidador = await db('cuidador').where({ cui_email }).first(); 
+        
+                if (!cuidador) {
+                    return res.status(404).json({
+                        error: "Cuidador não encontrado",
+                        message: `Nenhum cuidador encontrado com o email: ${cui_email}`
+                    });
+                }
+    
+                console.log(cuidador)
+        
+                res.status(200).json(cuidador); // Retorna os dados do 
+            } catch (error) {
+                console.error("Erro ao buscar cuidador:", error);
+                return res.status(500).json({
+                    error: "Erro interno do servidor",
+                    message: error.message
+                });
+            }
+        } catch (error) {
+            console.error('Erro ao buscar cuidadores:', error);
+            return res.status(500).json({
+                error: "Erro interno do servidor",
+                message: error.message
+            });
+        }
+    },
     async criarCuidador(req, res) {
         try {
             const {

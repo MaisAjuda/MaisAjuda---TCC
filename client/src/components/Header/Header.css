@@ -1,6 +1,7 @@
 .logo {
     width: 25vh;
     margin-bottom: auto;
+    cursor: pointer;
   }
 
   .p-header{

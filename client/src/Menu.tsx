@@ -21,12 +21,13 @@ function Menu() {
     setSelectCuid(option);
     setDropdownOpen(false);
     gsap.to("#dropdown-list", {
-      opacity: 0,
+      opacity: 1,
       x: -10,
       y: -10,
       duration: 0.3
     });
   }
+  
 
   function toggleDropdown() {
     const newDropdownOpen = !dropdownOpen;

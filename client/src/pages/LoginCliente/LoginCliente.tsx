@@ -89,6 +89,9 @@ export function LoginCliente() {
           placeholder="Senha..."
           className="inp"
         />
+        <h6 className='AGASEIS' onClick={()=>{
+          nav('/cadCli')
+        }}>Não tenho uma conta</h6>
         <button onClick={Logar} className="entrar">Entrar</button>
         <img src={MaisAjuda} alt="maisAjuda" className="Mais" />
       </div>

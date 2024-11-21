@@ -6,20 +6,22 @@ import { Footer } from '../../components/Footer/Footer';
 import InputMask from 'react-input-mask';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import { ModalCliente } from '../../components/ModalCliente/ModalCliente';
+import { setEspCode } from '../../Slice/espSlice/espSlice';
 
 // Tipagem para o botão de tipo de cuidado
 interface CareTypeButtonProps {
   label: string;
+  espId: number;
 }
 
 // Componente de botão de tipo de cuidado
-const CareTypeButton: React.FC<CareTypeButtonProps> = ({ label }) => {
-  return <button className="care-type-button">{label}</button>;
+const CareTypeButton: React.FC<CareTypeButtonProps> = ({ label, espId }) => {
+  return <button className="care-type-button" onClick={() => setEspId(espId)}>{label}</button>;
 };
 
 // Tipagem para o card do provedor de cuidado
@@ -33,11 +35,11 @@ interface CareProviderCardProps {
 // Componente de card do provedor de cuidado
 const CareProviderCard: React.FC<CareProviderCardProps> = ({ name, description, source, avalation }) => {
   return (
-    <div  className="care-provider-card">
+    <div className="care-provider-card">
       <div className="provider-icon"><img id="user-img" src={source || default_user} alt="" /></div>
       <div>
         <h3>{name}</h3>
-        <p id='descri'>{description}</p>
+        <p id="descri">{description}</p>
         <p>{avalation}</p>
       </div>
       <ModalCliente />
@@ -46,28 +48,37 @@ const CareProviderCard: React.FC<CareProviderCardProps> = ({ name, description, 
 };
 
 export function HomeCliente() {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const { esp_code } = useSelector((state: RootState) => state.esp);
   const nav = useNavigate();
   const [responseData, setResponseData] = useState<any[]>([]); // Estado para armazenar os dados dos cuidadores
 
+  // Função para obter cuidadores
+  async function getCuidadores() {
+    try {
+      const response = await axios.get('https://maisajuda-tcc-backend.onrender.com/cuidador');
+      setResponseData(response.data);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
+  }
+
+  // Função para definir o código de especialização
+  function setEspId(id: number) {
+    dispatch(setEspCode(id));
+  }
 
   useEffect(() => {
-
-    // Função para obter cuidadores
-    async function getCuidadores() {
-      try {
-        const response = await axios.get('https://maisajuda-tcc-backend.onrender.com/cuidador');
-        setResponseData(response.data);
-        setLoading(false);
-      } catch (err) {
-        console.log(err);
-        setLoading(false);
-      }
-    }
-
     getCuidadores(); // Chama a função para obter cuidadores quando o componente é montado
-  }, [ esp_code, nav]); // Dependências para garantir que o efeito só seja chamado quando os dados do usuário mudarem
+  }, []); // O efeito roda uma vez após o componente ser montado
+
+  // Função para filtrar cuidadores de acordo com o esp_code
+  const filteredCuidadores = responseData.filter((data) => {
+    return esp_code === 0 || data.esp_id === esp_code; // Filtra pelos cuidadores que correspondem ao esp_id
+  });
 
   return (
     <>
@@ -76,10 +87,10 @@ export function HomeCliente() {
         <aside className="sidebar">
           <img src={idosa_com_cuidadora} id="img-idosa-com-cuidadora" alt="idosa-com-cuidadora" />
           <h2 id="h2-cuidado">Qual cuidado você procura?</h2>
-          <CareTypeButton label="PCD" />
-          <CareTypeButton label="Idosos" />
-          <CareTypeButton label="Pós-Operatório" />
-          <CareTypeButton label="Recém Nascidos" />
+          <CareTypeButton label="PCD" espId={1} />
+          <CareTypeButton label="Idosos" espId={2} />
+          <CareTypeButton label="Pós-Operatório" espId={3} />
+          <CareTypeButton label="Recém Nascidos" espId={4} />
         </aside>
 
         <main className="main-content">
@@ -101,45 +112,22 @@ export function HomeCliente() {
           {loading ? (
             <center><ReactLoading type={'bars'} color={"#3CA6A6"} height={667} width={375} /></center>
           ) : (
-            responseData.length > 0 && responseData.map((data) => {
-              // Verifique se os dados e as propriedades existem
-              if (data && data.cui_status !== undefined) {
-                if (esp_code > 0) {
-                  if (data.cui_status != 0 && esp_code == data.esp_id) {
-                    return (
-                      <CareProviderCard
-                        key={data.cui_cpf} // Adiciona uma chave única para o componente
-                        source={data.img}
-                        name={data.cui_nome}
-                        description={data.cui_descri}
-                        avalation={data.cui_aval}
-                      />
-                    );
-                  }
-                } else if (esp_code === 0) {
-                  if (data.cui_status === 1) {
-                    return (
-                      <div>
-                        <CareProviderCard
-                        key={data.cui_cpf} // Adiciona uma chave única para o componente
-                        source={data.img}
-                        name={data.cui_nome}
-                        description={data.cui_descri}
-                        avalation={data.cui_aval}
-                        />
-                      </div>
-                    );
-                  }
-                } else if(data.lenght == 0){
-                  return(
-                    <div>
-                      <h2>Não há cuidadores disponíveis</h2>
-                    </div>
-                  )
-                }
-              }
-              return null; // Retorna null caso nada seja renderizado
-            })
+            // Verifica se existem cuidadores após filtragem
+            filteredCuidadores.length > 0 ? (
+              filteredCuidadores.map((data) => (
+                <CareProviderCard
+                  key={data.cui_cpf} // Adiciona uma chave única para o componente
+                  source={data.img}
+                  name={data.cui_nome}
+                  description={data.cui_descri}
+                  avalation={data.cui_aval}
+                />
+              ))
+            ) : (
+              <div>
+                <h2>Não há cuidadores disponíveis para essa especialidade</h2>
+              </div>
+            )
           )}
         </main>
       </div>

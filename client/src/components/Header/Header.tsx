@@ -14,7 +14,7 @@ import { RootState } from '@reduxjs/toolkit/query';
 gsap.registerPlugin(CSSPlugin);
 
 export function Header() {
-    const { email } = useSelector((state:any) => state.user);
+    const { email,senha } = useSelector((state:any) => state.user);
     const [isUserValid, setIsUserValid] = useState(false);
     const notyf = new Notyf({
         duration: 3000,
@@ -77,9 +77,7 @@ export function Header() {
             }} alt="logo-mais-ajuda" />
             <nav>
                 <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} id="p-home" className="p-header" onClick={() => {
-                    const { tipo, email, senha } = useSelector((state: any) => state.user);
-                    
-                    if (!email || !senha || tipo === 'cuidador') {
+                    if (isUserValid) {
                         nav('/home-cliente');
                     }else{
                         nav('/')

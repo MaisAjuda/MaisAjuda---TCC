@@ -8,6 +8,12 @@
     font-family: 'Montserrat', 'Roboto', sans-serif;
 }
 
+.AGASEIS{
+    color: rgb(189, 0, 0);
+    margin-left: -35%;
+    margin-top: 1.5%;
+}
+
 .divAre {
     position: relative;
     display: flex;

@@ -8,9 +8,11 @@ import { Contato } from "./pages/Contato/Contato";
 import LoginSelection from "./pages/LoginSelection/LoginSelection";
 import { HomeCliente } from "./pages/HomeCliente/HomeCliente";
 import { PerfilCliente } from "./pages/PerfilCliente/PerfilCliente";
+import { CadCliente } from "./pages/CadCliente/CadCliente";
+import { HomeCui } from "./pages/HomeCuidador/HomeCuidador";
 
 export function RouteApp(){
-    return(
+    return( 
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Menu/>}/>
@@ -18,10 +20,12 @@ export function RouteApp(){
                 <Route path="/login-cliente" element={<LoginCliente/>} />
                 <Route path="/login-cuidador" element={<LoginCuidador/>} />
                 <Route path="/home-cliente" element={<HomeCliente/>} />
+                <Route path="/home-cuidador" element={<HomeCui/>} />
                 <Route path="/perfil-cliente" element={<PerfilCliente/>} />
                 <Route path="/cadCuidador" element={<CadCuidador/>} />
                 <Route path="/sobreNos" element={<SobreNos />} />
                 <Route path="/" element={<Menu />} />
+                <Route path="/cadCli" element={<CadCliente/>}/>
                 <Route path="/contato" element={<Contato />} />
                 
             </Routes>

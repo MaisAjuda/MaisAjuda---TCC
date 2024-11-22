@@ -130,7 +130,7 @@ function Menu() {
             <p className='pp'>Para quem precisa de acompanhamento domiciliar para si ou para seus familiares.</p>
             <button onClick={() => {
               nav('/home-cliente')
-            }} id='buscar'>Buscar</button>
+            }} id='buscar'><h3>Buscar</h3></button>
           </div>
         </section>
 

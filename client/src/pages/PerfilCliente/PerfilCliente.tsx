@@ -1,7 +1,7 @@
 import { Footer } from "../../components/Footer/Footer";
 import { Header } from "../../components/Header/Header";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { FaUserEdit, FaCog, FaTrashAlt, FaSignOutAlt } from "react-icons/fa";
+import { FaUserEdit, FaTrashAlt, FaSignOutAlt } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./PerfilCliente.css";
 import { useEffect, useState } from "react";
@@ -133,6 +133,7 @@ export function PerfilCliente() {
               <>
                 <div className="profile-image">
                   <img
+                    className="photo"
                     src={perfil.cli_foto_id || "https://via.placeholder.com/150"}
                     alt="Profile"
                   />

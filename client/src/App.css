@@ -322,8 +322,7 @@ label{
 }
 
 #buscar{
-  margin-top: 13vh;
-  margin-left: 22vw;
+  margin-left: 35%;
   width: 15vw;
   cursor: pointer;
   height: 5vh;
@@ -432,4 +431,69 @@ button.btnCuid {
   width: 5vw;
   border-radius: 100%;
   box-shadow: 0.2vw 0.2vh #038D9D;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .divAre {
+      width: 90%;
+      max-width: 400px;
+      padding: 4vw;
+  }
+
+  .H1S {
+      font-size: 1.5rem;
+  }
+
+  .senhor {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .divAre2 {
+      padding: 15px;
+      width: 100%;
+  }
+
+  .H112 {
+      font-size: 1.8rem;
+  }
+
+  .inp {
+      width: 100%;
+      font-size: 1rem;
+  }
+  .entrar {
+      width: 100%;
+      font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .H2S {
+      font-size: 4.5vw;
+  }
+
+  .H1S {
+      font-size: 1.2rem;
+  }
+
+  .senhor {
+      width: 80%;
+      height: auto;
+  }
+
+  .divAre {
+      width: 95%;
+      padding: 6vw;
+  }
+
+  .inp {
+      font-size: 0.9rem;
+  }
+
+  .entrar {
+      font-size: 1rem;
+  }
 }

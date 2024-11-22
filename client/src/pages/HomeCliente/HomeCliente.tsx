@@ -8,7 +8,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
-import { useNavigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 import { ModalCliente } from '../../components/ModalCliente/ModalCliente';
 import { setEspCode } from '../../Slice/espSlice/espSlice';
@@ -19,10 +18,10 @@ interface CareTypeButtonProps {
   espId: number;
 }
 
+
+
 // Componente de botão de tipo de cuidado
-const CareTypeButton: React.FC<CareTypeButtonProps> = ({ label, espId }) => {
-  return <button className="care-type-button" onClick={() => setEspId(espId)}>{label}</button>;
-};
+
 
 // Tipagem para o card do provedor de cuidado
 interface CareProviderCardProps {
@@ -48,11 +47,13 @@ const CareProviderCard: React.FC<CareProviderCardProps> = ({ name, description, 
 };
 
 export function HomeCliente() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const [loading, setLoading] = useState(true);
   const { esp_code } = useSelector((state: RootState) => state.esp);
-  const nav = useNavigate();
   const [responseData, setResponseData] = useState<any[]>([]); // Estado para armazenar os dados dos cuidadores
+  const CareTypeButton: React.FC<CareTypeButtonProps> = ({ label, espId }) => {
+    return <button className="care-type-button" onClick={() => dispatch(setEspCode(espId)) }>{label}</button>;
+  };
 
   // Função para obter cuidadores
   async function getCuidadores() {
@@ -66,10 +67,6 @@ export function HomeCliente() {
     }
   }
 
-  // Função para definir o código de especialização
-  function setEspId(id: number) {
-    dispatch(setEspCode(id));
-  }
 
   useEffect(() => {
     getCuidadores(); // Chama a função para obter cuidadores quando o componente é montado

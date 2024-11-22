@@ -8,7 +8,223 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  .edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+  }
   
+  .edit-profile-form label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .edit-profile-form input,
+  .edit-profile-form textarea,
+  .edit-profile-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    color: #333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .edit-profile-form input:focus,
+  .edit-profile-form textarea:focus,
+  .edit-profile-form select:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  .edit-profile-form .status-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .edit-profile-form .status-toggle button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-profile-form .status-toggle button.disponivel {
+    background-color: #28a745;
+    color: #fff;
+  }
+  
+  .edit-profile-form .status-toggle button.indisponivel {
+    background-color: #dc3545;
+    color: #fff;
+  }
+  
+  .edit-profile-form .buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  .edit-profile-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .edit-profile,
+  .logout,
+  .delete-account {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-profile {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .edit-profile:hover {
+    background-color: #0056b3;
+  }
+  
+  .logout {
+    background-color: #f0ad4e;
+    color: white;
+  }
+  
+  .logout:hover {
+    background-color: #ec971f;
+  }
+  
+  .delete-account {
+    background-color: #d9534f;
+    color: white;
+  }
+  
+  .delete-account:hover {
+    background-color: #c9302c;
+  }
+  
+
+  .edit-profile-form button.save {
+    background-color: #007BFF;
+    color: #fff;
+  }
+  
+  .edit-profile-form button.cancel {
+    background-color: #6c757d;
+    color: #fff;
+  }
+  
+  .edit-profile-form button:hover {
+    opacity: 0.9;
+  }
+  
+  
+    /* Estilo geral para os inputs */
+  input {
+    color: black;
+    width: 100%;  /* Faz os inputs ocuparem toda a largura disponível */
+    padding: 10px;  /* Espaçamento interno */
+    border-radius: 5px;  /* Bordas arredondadas */
+    border: 1px solid #ccc;  /* Cor da borda */
+    margin-bottom: 15px;  /* Espaço abaixo do input */
+    font-size: 16px;  /* Tamanho da fonte */
+    background-color: #f9f9f9;  /* Cor de fundo */
+    transition: border-color 0.3s;  /* Transição suave na borda */
+  }
+
+  /* Estilo para o foco (quando o input está selecionado) */
+  input:focus {
+    border-color: #4CAF50;  /* Cor da borda ao focar */
+    outline: none;  /* Remove o contorno padrão */
+    background-color: #ffffff;  /* Cor de fundo quando focado */
+  }
+
+  /* Estilo para inputs do tipo senha */
+  input[type="password"] {
+    letter-spacing: 0.1em;  /* Aumenta o espaçamento entre os caracteres */
+  }
+
+  /* Estilo para o label */
+  label {
+    display: block;  /* Garante que o label ocupe uma linha inteira */
+    font-weight: bold;  /* Deixa o label em negrito */
+    margin-bottom: 5px;  /* Espaço abaixo do label */
+    font-size: 14px;  /* Tamanho da fonte */
+  }
+
+  /* Estilo base para os botões */
+  button {
+    padding: 10px 20px;  /* Espaçamento interno */
+    border-radius: 5px;  /* Bordas arredondadas */
+    border: none;  /* Remove a borda padrão */
+    font-size: 16px;  /* Tamanho da fonte */
+    cursor: pointer;  /* Cursor de "mãozinha" ao passar o mouse */
+    transition: background-color 0.3s, transform 0.2s;  /* Transição para cores e animação */
+    margin-right: 10px;  /* Espaçamento entre os botões */
+  }
+
+  /* Botão Salvar */
+  button.salvar {
+    background-color: #4CAF50;  /* Verde */
+    color: white;  /* Texto branco */
+  }
+
+  button.salvar:hover {
+    background-color: #45a049;  /* Verde mais escuro ao passar o mouse */
+    transform: scale(1.05);  /* Leve aumento ao passar o mouse */
+  }
+
+  /* Botão Cancelar */
+  button.cancelar {
+    background-color: #f44336;  /* Vermelho */
+    color: white;  /* Texto branco */
+  }
+
+  button.cancelar:hover {
+    background-color: #d32f2f;  /* Vermelho mais escuro ao passar o mouse */
+    transform: scale(1.05);  /* Leve aumento ao passar o mouse */
+  }
+
+  /* Estilo de desabilitado */
+  button:disabled {
+    background-color: #ccc;  /* Cinza claro */
+    color: #666;  /* Texto cinza */
+    cursor: not-allowed;  /* Cursor de não permitido */
+  }
+
+
+
   body {
     font-family: Arial, sans-serif;
     background-color: #e5e5e5;

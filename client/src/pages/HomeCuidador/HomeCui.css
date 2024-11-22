@@ -19,6 +19,82 @@
     padding: 0;
     list-style-type: none;
   }
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+  }
+  
+  .edit-profile,
+  .logout,
+  .delete-account {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-profile {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .edit-profile:hover {
+    background-color: #0056b3;
+  }
+  
+  .logout {
+    background-color: #f0ad4e;
+    color: white;
+  }
+  
+  .logout:hover {
+    background-color: #ec971f;
+  }
+  
+  .delete-account {
+    background-color: #d9534f;
+    color: white;
+  }
+
+  #descri{
+    width: 20vw;
+    max-width: 25vw;
+  }
+  
+  .delete-account:hover {
+    background-color: #c9302c;
+  }
+  
+  /* Notificação */
+  .notifications {
+    margin-top: 30px;
+  }
+  
+  .notification-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .notification-action {
+    background-color: #003a6d;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .notification-action:hover {
+    background-color: #0056b3;
+  }
+  
   
   .nav-item {
     display: flex;

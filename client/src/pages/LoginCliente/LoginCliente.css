@@ -7,11 +7,11 @@
     background: #C4C4C4;
     font-family: 'Montserrat', 'Roboto', sans-serif;
 }
-
 .AGASEIS{
-    color: rgb(189, 0, 0);
-    margin-left: -35%;
-    margin-top: 1.5%;
+    color: red;
+    margin-right: 40%;
+    margin-top: 1%;
+    cursor: pointer;
 }
 
 .divAre {
@@ -31,7 +31,7 @@
 .H2S{
     position: absolute;
     text-align: justify;
-    top: -1vw;
+    top: 1vw;
     left: 13vw;
     text-indent: -12px;
     line-height: 1em;
@@ -72,9 +72,10 @@ span{
     border-end-end-radius: 10px;
 }
 .Mais{
-    margin-top: 0;
-    width: 85%;
+    margin-top: 0%;
+    width: 65%;
 }
+
 .H112{
     color: #026773;
     font-size: 4rem;

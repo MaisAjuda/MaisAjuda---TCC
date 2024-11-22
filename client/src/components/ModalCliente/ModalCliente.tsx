@@ -1,37 +1,38 @@
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import logo from '../../assets/AJUDA.png';
-import './ModalCliente.css'
-import { useState } from 'react';
-export function ModalCliente(){
-    const [show, setShow] = useState(false);
+import React, { useState } from 'react';
+import './Modal.css'; // Adicione um arquivo CSS para estilizar o modal
+import { FaTimes } from 'react-icons/fa';
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+type ModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  cuidador: {
+    nome: string;
+    numero: string;
+    descricao: string;
+  };
+  onContratar: (numero: string) => void;
+};
 
-    return(
-        <div>
-            <Button id='contratar' variant="primary" onClick={handleShow}>
-                Contratar
-            </Button>
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, cuidador, onContratar }) => {
+  if (!isOpen) return null; // Não renderiza o modal se não estiver aberto
 
-            <Modal
-            id='conteiner-modal'
-            show={show}
-            size="lg"
-            aria-labelledby="contained-modal-title-vcenter"
-            centered
-            >
-            <Modal.Header closeButton id='modal-header'>
-            <Modal.Title id="contained-modal-title-vcenter">
-                <img id='img' src={logo} alt="" />
-                <Button id='btn-fechar' variant="secondary" onClick={handleClose}>
-                X
-                </Button>
-            </Modal.Title>
-            </Modal.Header>
-        
-        </Modal>
+  return (
+    <div className="modal-overlay">
+      <div className="modal-container">
+        <button className="close-button" onClick={onClose}>
+          <FaTimes />
+        </button>
+        <div className="modal-content">
+          <h2>{cuidador.nome}</h2>
+          <p><strong>Número:</strong> {cuidador.numero}</p>
+          <p><strong>Descrição:</strong> {cuidador.descricao}</p>
+          <button className="contratar-button" onClick={() => onContratar(cuidador.numero)}>
+            Contratar
+          </button>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
+
+export default Modal;

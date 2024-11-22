@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export function CadCliente() {
     // Estados para armazenar os valores dos inputs
     const [nome, setNome] = useState('');
-    const nav = useNavigate()
+    const nav = useNavigate();
     const [senha, setSenha] = useState('');
     const [cpf, setCpf] = useState('');
     const [cep, setCep] = useState('');
@@ -16,12 +16,11 @@ export function CadCliente() {
     const [email, setEmail] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
     const [sexo, setSexo] = useState('');
-    const [photoId, setPhotoId] = useState('');
+    const [photoId] = useState(''); // Mantém o valor padrão diretamente
     const notyf = new Notyf({
         duration: 3000,
         dismissible: true,
     });
-    setPhotoId('')
 
     // Função de envio
     async function Cadastrar() {
@@ -39,8 +38,8 @@ export function CadCliente() {
 
         try {
             const response = await axios.post('https://maisajuda-tcc-backend.onrender.com/cliente', clienteData);
-            notyf.success(response.data.mensagem || "Cadastrado com sucesso");
-            nav('/login-cliente')
+            notyf.success(response.data.mensagem || 'Cadastrado com sucesso');
+            nav('/login-cliente');
         } catch (error: any) {
             notyf.error(error.response?.data || 'Erro ao cadastrar cliente');
             console.error('Erro ao cadastrar cliente:', error);
@@ -160,7 +159,7 @@ export function CadCliente() {
                         <option value="F">Feminino</option>
                     </select>
 
-                    <input className="input-form" type="submit" value="CADASTRAR"/>
+                    <input className="input-form" type="submit" value="CADASTRAR" />
                     <input
                         className="input-form"
                         type="reset"

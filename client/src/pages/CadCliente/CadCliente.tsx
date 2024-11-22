@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import './CadCli.css';
 import InputMask from 'react-input-mask';
@@ -16,11 +16,12 @@ export function CadCliente() {
     const [email, setEmail] = useState('');
     const [dataNascimento, setDataNascimento] = useState('');
     const [sexo, setSexo] = useState('');
-    const [photoId, setPhotoId] = useState();
+    const [photoId, setPhotoId] = useState('');
     const notyf = new Notyf({
         duration: 3000,
         dismissible: true,
     });
+    setPhotoId('')
 
     // Função de envio
     async function Cadastrar() {

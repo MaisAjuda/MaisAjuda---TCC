@@ -8,18 +8,17 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Notyf } from 'notyf';
 import { clearUser } from '../../Slice/UserSlice/UserSlice';
-import { Notification } from '../../types/Notification';
+// import { Notification } from '../../types/Notification';
 import InputMask from 'react-input-mask';
-import { CgPathFront } from 'react-icons/cg';
 
-const notifications: Notification[] = [
-  {
-    name: 'Laura Oliveira',
-    type: 'Idoso',
-    location: 'Volta Redonda, RJ',
-    status: 'accept'
-  }
-];
+// const notifications: Notification[] = [
+//   {
+//     name: 'Laura Oliveira',
+//     type: 'Idoso',
+//     location: 'Volta Redonda, RJ',
+//     status: 'accept'
+//   }
+// ];
 
 export function HomeCui() {
   const notyf = new Notyf({
@@ -61,6 +60,7 @@ export function HomeCui() {
         "cui_sexo": sexo,
         "cui_data_nasc": dataNascimento,
       });
+      console.log(response.data);
       notyf.success("Perfil atualizado com sucesso!");
       setIsEditing(false);  // Fecha o modo de edição
     } catch (error: any) {

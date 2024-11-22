@@ -22,7 +22,7 @@ Router.get('/cliente', ControllerCliente.getcliente)
 
 
 Router.get('/cuidador', ControllerCuidador.getCuidador)
-Router.get('/cuidador/get-user/:cui_email', ControllerCuidador.getPerfilCuidador)
+Router.put('/cuidador/get-user/:cui_email', ControllerCuidador.getPerfilCuidador)
 Router.post('/cuidador/login', ControllerCuidador.loginCuidador)
 Router.post('/cuidador', ControllerCuidador.criarCuidador)
 Router.put('/cuidador', ControllerCuidador.alterarCuidador)

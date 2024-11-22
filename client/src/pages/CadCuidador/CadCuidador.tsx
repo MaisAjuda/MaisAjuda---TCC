@@ -15,7 +15,7 @@ export function CadCuidador() {
     const [email, setEmail] = useState('');
     const [descri, setDescri] = useState('');
     const [aval, setAval] = useState(0);
-    const [photoId, setPhotoId] = useState();
+    const [photoId, setPhotoId] = useState('');
     const [status, setStatus] = useState(1)
     const [dataNascimento, setDataNascimento] = useState('');
     const [sexo, setSexo] = useState('');
@@ -24,6 +24,9 @@ export function CadCuidador() {
         dismissible: true,
     });
     const [especialidade, setEspecialidade] = useState('');
+    setAval(0)
+    setPhotoId('')
+    setStatus(1)
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();

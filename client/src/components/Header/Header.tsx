@@ -9,12 +9,11 @@ import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Notyf } from 'notyf';
-import { RootState } from '@reduxjs/toolkit/query';
 
 gsap.registerPlugin(CSSPlugin);
 
 export function Header() {
-    const { email,senha } = useSelector((state:any) => state.user);
+    const { email } = useSelector((state:any) => state.user);
     const [isUserValid, setIsUserValid] = useState(false);
     const notyf = new Notyf({
         duration: 3000,

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import './Modal.css'; // Adicione um arquivo CSS para estilizar o modal
+import './ModalCliente.css'; // Adicione um arquivo CSS para estilizar o modal
 import { FaTimes } from 'react-icons/fa';
 
 type ModalProps = {

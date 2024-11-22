@@ -2,7 +2,7 @@ import './ModalCliente.css'; // Adicione um arquivo CSS para estilizar o modal
 import { FaTimes } from 'react-icons/fa';
 
 type ModalProps = {
-  isOpen: boolean;
+  isOpen?: boolean;
   onClose: () => void;
   cuidador: {
     nome: string;

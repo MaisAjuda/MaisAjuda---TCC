@@ -13,7 +13,7 @@ import { Notyf } from 'notyf';
 gsap.registerPlugin(CSSPlugin);
 
 export function Header() {
-    const { email } = useSelector((state:any) => state.user);
+    const { email, tipo } = useSelector((state:any) => state.user);
     const [isUserValid, setIsUserValid] = useState(false);
     const notyf = new Notyf({
         duration: 3000,
@@ -77,7 +77,11 @@ export function Header() {
             <nav>
                 <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} id="p-home" className="p-header" onClick={() => {
                     if (isUserValid) {
-                        nav('/home-cliente');
+                        if(tipo === "cliente"){
+                            nav('/home-cliente');
+                        }else if(tipo === "cuidador"){
+                            nav('/home-cuidador');
+                        }
                     }else{
                         nav('/')
                     }
@@ -93,7 +97,13 @@ export function Header() {
                 <p>|</p>
                 {/* Renderiza com base no estado */}
                 {isUserValid ? (
-                    <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} className="p-header" onClick={() => nav('/perfil-cliente')}>
+                    <p onMouseEnter={EntraMouse} onMouseLeave={SaiMouse} className="p-header" onClick={() => {
+                        if(tipo === "cliente"){
+                            nav('/perfil-cliente')
+                        }else if(tipo === "cuidador"){
+                            nav('/home-cuidador')
+                        }
+                    }}>
                         <IoPersonOutline /> Perfil
                     </p>
                 ) : (

@@ -137,7 +137,7 @@ export function HomeCui() {
         <nav className="nav-links">
           <ul>
             <li>
-              <Link to="/home" className="nav-item">
+              <Link to="/" className="nav-item">
                 <FaHome />
                 <span>Início</span>
               </Link>

@@ -1,0 +1,66 @@
+/* Modal.css */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    position: relative;
+    max-height: 90%; /* Impede que o modal ultrapasse a tela */
+    overflow-y: auto; /* Permite rolagem se o conteúdo for maior que o modal */
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .modal-content p {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+  
+  .modal-content img {
+    max-width: 80%;  /* Limita a largura da imagem (logo) */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-bottom: 20px;
+  }
+  
+  .contratar-button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .contratar-button:hover {
+    background-color: #218838;
+  }
+  

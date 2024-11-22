@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://www.flaticon.com/br/icone-gratis/costas_126492?related_id=126492&origin=pack');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E1E1E1;
+}
+
+#header {
+    background-color: #1A3D5D;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5vh;
+}
+
+header > h1{
+    color: white;
+    font-family: 'Poppins', 'Courier New', Courier, monospace;
+    font-weight: 300;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+form {
+    margin-top: 7vh;
+    background-color: #D3D3D3;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    width: 500px;
+}
+
+label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.input-form {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #888888;
+    border: 1px solid #B3B3B3;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+input[type="submit"]{
+    background-color: #012340;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    grid-column: span 2;
+    margin-bottom: 0;
+    transition: 0.3s ease-in-out;
+}
+input[type="reset"] {
+    background-color: rgb(232, 82, 82);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 100%;
+    grid-column: span 2;
+    margin-bottom: 0;
+    transition: 0.2s ease-in-out;
+}
+
+input[type="submit"]:hover{
+    background-color: #16324A;
+}
+input[type="reset"]:hover {
+    background-color: rgb(131, 0, 0);
+}
+
+@media (max-width: 600px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    input[type="submit"], input[type="reset"] {
+        grid-column: span 1;
+    }
+}

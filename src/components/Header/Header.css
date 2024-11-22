@@ -1,0 +1,18 @@
+.logo {
+    width: 25vh;
+    margin-bottom: auto;
+    cursor: pointer;
+  }
+
+  .p-header{
+    font-size: 1.4rem;
+    transition: all 3ms ease-in-out;
+    color: white;
+  }
+  .menu-hamburguer{
+    display: none;
+  }
+  .p-home{
+    margin-left: 0;
+  }
+

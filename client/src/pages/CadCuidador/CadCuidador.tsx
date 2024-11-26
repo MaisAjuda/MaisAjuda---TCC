@@ -9,24 +9,21 @@ export function CadCuidador() {
     const [nome, setNome] = useState('');
     const [senha, setSenha] = useState('');
     const [cpf, setCpf] = useState('');
-    const nav = useNavigate()
-    const [cep, setCep] = useState();
+    const [cep, setCep] = useState('');
     const [telefone, setTelefone] = useState('');
     const [email, setEmail] = useState('');
     const [descri, setDescri] = useState('');
-    const [aval, setAval] = useState(0);
-    const [photoId, setPhotoId] = useState('');
-    const [status, setStatus] = useState(1)
+    const [aval, setAval] = useState(0); // Valor inicial definido aqui
+    const [photoId, setPhotoId] = useState(''); // Valor inicial definido aqui
+    const [status, setStatus] = useState(1); // Valor inicial definido aqui
     const [dataNascimento, setDataNascimento] = useState('');
     const [sexo, setSexo] = useState('');
+    const [especialidade, setEspecialidade] = useState('');
     const notyf = new Notyf({
         duration: 3000,
         dismissible: true,
     });
-    const [especialidade, setEspecialidade] = useState('');
-    setAval(0)
-    setPhotoId('')
-    setStatus(1)
+    const nav = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -36,34 +33,31 @@ export function CadCuidador() {
         const formattedTelefone = telefone.replace(/[^\d]/g, '');
 
         const cuidadorData = {
-            "cui_nome": nome,
-            "cui_senha": senha,
-            "cui_cpf": formattedCpf,
-            "cui_tel": formattedTelefone,
-            "cui_email": email,
-            "cui_data_nasc": dataNascimento,
-            "cui_sexo":sexo,
-            "esp_id": especialidade,
-            "cui_status": status,
-            "cui_cep": cep,
-            "cui_aval": aval,
-            "cui_descri": descri,
-            "cui_foto_id": photoId
+            cui_nome: nome,
+            cui_senha: senha,
+            cui_cpf: formattedCpf,
+            cui_tel: formattedTelefone,
+            cui_email: email,
+            cui_data_nasc: dataNascimento,
+            cui_sexo: sexo,
+            esp_id: especialidade,
+            cui_status: status,
+            cui_cep: cep,
+            cui_aval: aval,
+            cui_descri: descri,
+            cui_foto_id: photoId,
         };
 
         try {
             const response = await axios.post('https://maisajuda-tcc-backend.onrender.com/cuidador', cuidadorData);
-            notyf.success(response.data.mensagem || "Cadastrado com sucesso");
-            nav('/login-cuidador')
+            notyf.success(response.data.mensagem || 'Cadastrado com sucesso');
+            nav('/login-cuidador');
         } catch (error: any) {
             notyf.error(error.response?.data || 'Erro ao cadastrar cuidador');
             console.error('Erro ao cadastrar cuidador:', error);
         }
 
-
-
         console.log('Dados enviados:', cuidadorData);
-        // Aqui você pode realizar a chamada para a API, como com `axios.post`
     };
 
     return (
@@ -119,7 +113,7 @@ export function CadCuidador() {
                         title="Digite um CEP no formato: xxxxx-xxx"
                         required
                         value={cep}
-                        onChange={(e:any) => setCep(e.target.value)}
+                        onChange={(e) => setCep(e.target.value)}
                     />
 
                     <label htmlFor="tel">Telefone</label>

@@ -13,16 +13,15 @@ export function CadCuidador() {
     const [telefone, setTelefone] = useState('');
     const [email, setEmail] = useState('');
     const [descri, setDescri] = useState('');
-    const [aval, setAval] = useState(0); // Valor inicial definido aqui
-    const [photoId, setPhotoId] = useState(''); // Valor inicial definido aqui
-    const [status, setStatus] = useState(1); // Valor inicial definido aqui
     const [dataNascimento, setDataNascimento] = useState('');
     const [sexo, setSexo] = useState('');
     const [especialidade, setEspecialidade] = useState('');
+    
     const notyf = new Notyf({
         duration: 3000,
         dismissible: true,
     });
+
     const nav = useNavigate();
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -41,11 +40,11 @@ export function CadCuidador() {
             cui_data_nasc: dataNascimento,
             cui_sexo: sexo,
             esp_id: especialidade,
-            cui_status: status,
+            cui_status: 1, // Valor fixo, pois o setter foi removido
             cui_cep: cep,
-            cui_aval: aval,
+            cui_aval: 0, // Valor fixo, pois o setter foi removido
             cui_descri: descri,
-            cui_foto_id: photoId,
+            cui_foto_id: '', // Valor fixo, pois o setter foi removido
         };
 
         try {
@@ -56,8 +55,6 @@ export function CadCuidador() {
             notyf.error(error.response?.data || 'Erro ao cadastrar cuidador');
             console.error('Erro ao cadastrar cuidador:', error);
         }
-
-        console.log('Dados enviados:', cuidadorData);
     };
 
     return (
@@ -207,6 +204,8 @@ export function CadCuidador() {
                             setDataNascimento('');
                             setSexo('');
                             setEspecialidade('');
+                            setCep('');
+                            setDescri('');
                         }}
                     />
                 </form>

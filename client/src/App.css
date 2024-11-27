@@ -77,7 +77,7 @@ p {
 .img-1{
   width: 100vw;
   opacity: 56%;
-  height: 50vh;
+  height: 60vh;
   background-image: url('assets/idosa.jpg');
   background-position: center 110vh;
   background-size: 100%;
@@ -325,6 +325,7 @@ label{
   margin-left: 35%;
   width: 15vw;
   cursor: pointer;
+  padding-bottom:2%;
   height: 5vh;
   font-size: 1.7rem;
   font-family: 'Roboto', 'Courier New', Courier, monospace;

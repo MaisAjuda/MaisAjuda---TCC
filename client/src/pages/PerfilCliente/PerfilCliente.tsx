@@ -134,7 +134,7 @@ export function PerfilCliente() {
                 <div className="profile-image">
                   <img
                     className="photo"
-                    src={perfil.cli_foto_id || "/assets/default-user-DF_hG8Cl.png"}
+                    src="/assets/default-user-DF_hG8Cl.png"
                     alt="Profile"
                   />
                 </div>
